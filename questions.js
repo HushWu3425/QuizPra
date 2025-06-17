@@ -1,4 +1,4 @@
-[
+const questions = [
   {
     "question_id": 1,
     "content": "下列哪个元素是植物生长必需的微量元素？",
@@ -69,4 +69,4 @@
     "subject": "化学",
     "error_number": 4
   }
-]
+];
