@@ -1,0 +1,72 @@
+[
+  {
+    "question_id": 1,
+    "content": "下列哪个元素是植物生长必需的微量元素？",
+    "option_A": "氮",
+    "option_B": "磷",
+    "option_C": "锌",
+    "option_D": "钾",
+    "answer": "C",
+    "explanation": "锌是植物必需的微量元素，参与多种酶的合成和功能，而氮磷钾是大量元素",
+    "difficulty": 3,
+    "lasttime": "2023-10-15T14:30:00Z",
+    "subject": "生物",
+    "error_number": 3
+  },
+  {
+    "question_id": 2,
+    "content": "在Python中，以下哪个方法用于向列表末尾添加新元素？",
+    "option_A": "insert()",
+    "option_B": "append()",
+    "option_C": "add()",
+    "option_D": "push()",
+    "answer": "B",
+    "explanation": "append()方法用于在列表末尾添加新元素，insert()用于指定位置插入",
+    "difficulty": 2,
+    "lasttime": "2023-11-02T09:45:00Z",
+    "subject": "计算机科学",
+    "error_number": 1
+  },
+  {
+    "question_id": 3,
+    "content": "2022年冬奥会在哪个城市举办？",
+    "option_A": "东京",
+    "option_B": "平昌",
+    "option_C": "北京",
+    "option_D": "索契",
+    "answer": "C",
+    "explanation": "2022年第24届冬季奥林匹克运动会由北京和张家口联合举办",
+    "difficulty": 1,
+    "lasttime": "2023-09-20T16:20:00Z",
+    "subject": "时事政治",
+    "error_number": 5
+  },
+  {
+    "question_id": 4,
+    "content": "下列哪个物理量的单位是牛顿？",
+    "option_A": "功",
+    "option_B": "功率",
+    "option_C": "力",
+    "option_D": "能量",
+    "answer": "C",
+    "explanation": "牛顿是力的国际单位，功和能量的单位是焦耳，功率的单位是瓦特",
+    "difficulty": 3,
+    "lasttime": "2023-10-28T11:10:00Z",
+    "subject": "物理",
+    "error_number": 2
+  },
+  {
+    "question_id": 5,
+    "content": "化学反应：2H₂ + O₂ → 2H₂O 属于哪种基本反应类型？",
+    "option_A": "分解反应",
+    "option_B": "置换反应",
+    "option_C": "化合反应",
+    "option_D": "复分解反应",
+    "answer": "C",
+    "explanation": "两种或多种物质生成一种物质的反应称为化合反应",
+    "difficulty": 2,
+    "lasttime": "2023-11-05T14:55:00Z",
+    "subject": "化学",
+    "error_number": 4
+  }
+]

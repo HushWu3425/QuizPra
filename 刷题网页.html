@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>刷题练习 | Practice Quiz</title>
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- TailwindCSS 3.0+ CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Framer Motion CDN -->
+  <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
+  <!-- Material Icons CDN -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body {
+      background: #fff;
+      font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+      color: #222;
+      overflow-x: hidden;
+    }
+    .highlight {
+      color: #FE1110;
+    }
+    .question-card {
+      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.06);
+      border-radius: 1.5rem;
+      transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+      background: #fff;
+      width: 100%; /* Added to make question card take full width */
+    }
+    .question-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 8px 32px 0 rgba(254,17,16,0.10);
+    }
+    .apple-scroll {
+      transition: background 0.5s, box-shadow 0.5s;
+    }
+    .apple-scroll.scrolled {
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 2px 16px 0 rgba(254,17,16,0.08);
+    }
+    .en {
+      font-size: 0.75rem; /* Adjusted from 0.9rem */
+      color: #888;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+    .zh {
+      font-size: 1.1rem; /* Adjusted from 1.35rem */
+      font-weight: bold;
+      letter-spacing: 0.02em;
+    }
+    .option-btn {
+      border: 2px solid #eee;
+      border-radius: 0.75rem;
+      padding: 0.75rem 1.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem; /* Adjusted from 1.1rem */
+      font-weight: 500;
+      background: #fafafa;
+      transition: border 0.2s, color 0.2s, background 0.2s;
+      width: 100%; /* Make buttons full width on small screens */
+      text-align: left;
+    }
+    @media (min-width: 768px) {
+      .option-btn {
+        width: auto; /* Auto width on larger screens */
+      }
+    }
+    .option-btn.selected {
+      border-color: #FE1110;
+      color: #FE1110;
+      background: #fff0f0;
+    }
+    .option-btn.correct {
+      border-color: #16a34a;
+      color: #16a34a;
+      background: #f0fff4;
+    }
+    .option-btn.incorrect {
+      border-color: #FE1110;
+      color: #FE1110;
+      background: #fff0f0;
+    }
+    .explanation {
+      background: #f9fafb;
+      border-left: 4px solid #FE1110;
+      padding: 1rem 1.5rem;
+      margin-top: 1rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      color: #444;
+    }
+    /* Sidebar styles */
+    .sidebar {
+      width: 280px;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .sidebar.open {
+      transform: translateX(0);
+    }
+    @media (min-width: 1024px) {
+      .sidebar {
+        transform: translateX(0);
+        position: sticky;
+        top: 0;
+        height: 100vh;
+      }
+      .sidebar-toggle-btn {
+        display: none;
+      }
+      .main-content {
+        margin-left: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="header" class="apple-scroll fixed top-0 left-0 w-full z-30 py-4 px-8 flex items-center justify-start lg:pl-80">
+    <div class="flex items-center">
+      <button id="sidebar-toggle" class="sidebar-toggle-btn material-icons text-gray-600 mr-4 lg:hidden">menu</button>
+      <!-- Removed: 刷题练习 and 网易云风格 | Netease Cloud Style -->
+    </div>
+  </header>
+
+  <div class="flex">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar fixed top-0 left-0 h-full bg-white shadow-lg z-40 p-6 pt-4 lg:pt-4 overflow-y-auto">
+      <div class="flex items-center mb-6">
+        <span class="material-icons highlight mr-2">quiz</span>
+        <span class="zh">刷题练习</span>
+        <span class="en ml-3">Practice Quiz</span>
+      </div>
+      <h3 class="zh mb-4 highlight">筛选条件 <span class="en">Filters</span></h3>
+      <div class="mb-6">
+        <label for="subject-filter" class="block text-gray-700 text-sm font-bold mb-2">科目 <span class="en">Subject</span></label>
+        <select id="subject-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+          <option value="all">所有科目 <span class="en">All Subjects</span></option>
+        </select>
+      </div>
+      <div class="mb-6">
+        <label for="difficulty-filter" class="block text-gray-700 text-sm font-bold mb-2">最大难度 <span class="en">Max Difficulty</span></label>
+        <select id="difficulty-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+          <option value="all">所有难度 <span class="en">All Difficulties</span></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <div class="mb-6">
+        <label for="min-error-filter" class="block text-gray-700 text-sm font-bold mb-2">最小错误次数 <span class="en">Min Errors</span></label>
+        <select id="min-error-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+          <option value="0">0</option>
+        </select>
+      </div>
+      <div class="mb-6">
+        <label for="last-error-date-filter" class="block text-gray-700 text-sm font-bold mb-2">最近错误时间 <span class="en">Last Error Date</span></label>
+        <input type="date" id="last-error-date-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content flex-1 pb-12 px-4 w-full mx-auto lg:ml-80"> <!-- Modified: Removed max-w-4xl, added w-full -->
+      <div id="question-container"></div>
+    </main>
+  </div>
+
+  <script>
+    // Apple官网风格滚动动效
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if(window.scrollY > 10) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Sidebar toggle
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggleBtn = document.getElementById('sidebar-toggle');
+    const mainContent = document.querySelector('.main-content');
+    const header = document.getElementById('header');
+
+    sidebarToggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      if (sidebar.classList.contains('open')) {
+        // On mobile, when sidebar opens, push main content to the right
+        if (window.innerWidth < 1024) {
+          mainContent.style.transform = 'translateX(280px)';
+          header.style.transform = 'translateX(280px)';
+        }
+      } else {
+        if (window.innerWidth < 1024) {
+          mainContent.style.transform = 'translateX(0)';
+          header.style.transform = 'translateX(0)';
+        }
+      }
+    });
+
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', (event) => {
+      if (window.innerWidth < 1024 && sidebar.classList.contains('open') &&
+          !sidebar.contains(event.target) && !sidebarToggleBtn.contains(event.target)) {
+        sidebar.classList.remove('open');
+        mainContent.style.transform = 'translateX(0)';
+        header.style.transform = 'translateX(0)';
+      }
+    });
+
+    // Adjust main content and header margin on resize for desktop view
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) {
+        sidebar.classList.remove('open'); // Ensure sidebar is open on desktop
+        mainContent.style.transform = 'translateX(0)';
+        header.style.transform = 'translateX(0)';
+      }
+    });
+
+    let allQuestions = [];
+    let filteredQuestions = [];
+
+    // 读取本地JSON（需本地服务器环境）
+    fetch('错题库.json')
+      .then(res => res.json())
+      .then(data => {
+        allQuestions = data;
+        populateFilters();
+        filterAndRenderQuestions();
+      });
+
+    function populateFilters() {
+      const subjectFilter = document.getElementById('subject-filter');
+      const minErrorFilter = document.getElementById('min-error-filter');
+      const difficulties = new Set();
+      const subjects = new Set();
+      let maxErrorNumber = 0;
+
+      allQuestions.forEach(q => {
+        subjects.add(q.subject);
+        difficulties.add(q.difficulty);
+        if (q.error_number > maxErrorNumber) {
+          maxErrorNumber = q.error_number;
+        }
+      });
+
+      subjects.forEach(subject => {
+        const option = document.createElement('option');
+        option.value = subject;
+        option.textContent = subject;
+        subjectFilter.appendChild(option);
+      });
+
+      // Populate min error filter
+      for (let i = 0; i <= maxErrorNumber; i++) {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = i;
+        minErrorFilter.appendChild(option);
+      }
+
+      // Difficulty filter is already hardcoded 1-5, no need to populate dynamically unless difficulty can be > 5
+    }
+
+    function filterAndRenderQuestions() {
+      const selectedSubject = document.getElementById('subject-filter').value;
+      const maxDifficulty = document.getElementById('difficulty-filter').value;
+      const minErrorNumber = parseInt(document.getElementById('min-error-filter').value);
+      const lastErrorDate = document.getElementById('last-error-date-filter').value;
+
+      filteredQuestions = allQuestions.filter(q => {
+        const subjectMatch = selectedSubject === 'all' || q.subject === selectedSubject;
+        const difficultyMatch = maxDifficulty === 'all' || q.difficulty <= parseInt(maxDifficulty);
+        const errorMatch = q.error_number >= minErrorNumber;
+        
+        let dateMatch = true;
+        if (lastErrorDate) {
+          const questionDate = new Date(q.lasttime).setHours(0,0,0,0);
+          const filterDate = new Date(lastErrorDate).setHours(0,0,0,0);
+          dateMatch = questionDate >= filterDate;
+        }
+
+        return subjectMatch && difficultyMatch && errorMatch && dateMatch;
+      });
+      renderQuestions(filteredQuestions);
+    }
+
+    function renderQuestions(questionsToRender) {
+      const questionContainer = document.getElementById('question-container');
+      let allQuestionsHtml = '';
+
+      if (questionsToRender.length === 0) {
+        allQuestionsHtml = '<p class="text-center text-gray-500 text-xl mt-10">没有找到符合条件的题目。<br><span class="en">No questions found matching the criteria.</span></p>';
+      } else {
+        questionsToRender.forEach((q) => {
+          let questionHtml = `<div class='question-card p-8 mb-6'>
+            <div class='zh mb-2'>Q${q.question_id}：${q.content}</div>
+            <div class='en mb-4'>科目 Subject: ${q.subject} | 难度 Difficulty: ${q.difficulty} | 错误次数 Errors: ${q.error_number} | 最近错误 Last Error: ${q.lasttime || 'N/A'}</div>`;
+          ['A','B','C','D'].forEach(opt => {
+            questionHtml += `<button class='option-btn' data-question-id='${q.question_id}' data-opt='${opt}'>${opt}. ${q['option_' + opt]}</button><br/>`;
+          });
+          questionHtml += `<div id='explanation-${q.question_id}' class='explanation hidden'></div>`;
+          questionHtml += `</div>`;
+          allQuestionsHtml += questionHtml;
+        });
+      }
+      questionContainer.innerHTML = allQuestionsHtml;
+
+      // Re-attach event listeners for newly rendered buttons
+      document.querySelectorAll('.option-btn').forEach(btn => {
+        btn.onclick = function() {
+          const questionId = this.getAttribute('data-question-id');
+          const selectedOption = this.getAttribute('data-opt');
+          const currentQuestion = allQuestions.find(q => q.question_id == questionId);
+
+          // Remove selected/correct/incorrect classes from all options of this question
+          document.querySelectorAll(`.option-btn[data-question-id='${questionId}']`).forEach(b => b.classList.remove('selected','correct','incorrect'));
+
+          this.classList.add('selected');
+          const explanationDiv = document.getElementById(`explanation-${questionId}`);
+          explanationDiv.classList.remove('hidden');
+
+          if(selectedOption === currentQuestion.answer) {
+            this.classList.add('correct');
+            explanationDiv.innerHTML = `<span class="highlight">✔ 正确！</span> ${currentQuestion.explanation}`;
+          } else {
+            this.classList.add('incorrect');
+            explanationDiv.innerHTML = `<span class="highlight">✗ 错误！</span> 正确答案是：${currentQuestion.answer}。 ${currentQuestion.explanation}`;
+          }
+        };
+      });
+    }
+
+    // Add event listeners to filters
+    document.getElementById('subject-filter').addEventListener('change', filterAndRenderQuestions);
+    document.getElementById('difficulty-filter').addEventListener('change', filterAndRenderQuestions);
+    document.getElementById('min-error-filter').addEventListener('change', filterAndRenderQuestions);
+    document.getElementById('last-error-date-filter').addEventListener('change', filterAndRenderQuestions);
+
+    // Initial sidebar state for desktop
+    if (window.innerWidth >= 1024) {
+      sidebar.classList.add('open');
+    }
+  </script>
+</body>
+</html>
