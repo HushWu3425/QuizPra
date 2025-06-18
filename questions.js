@@ -917,7 +917,7 @@ const questions = [
 "answer": "B",
 "explanation": "题干强调法律、法规对公民基本权利的保障，体现了人民民主的真实性（B），即权利有法律和制度的保障。A选项“广泛性”强调权利主体的广泛；C选项“物质保障”未直接体现；D选项与题干无关。",
 "lasttime": "2025-06-18T13:25:00Z",
-"subject": "政治",
+"subject": "习新思想",
 "error_number": 1
 },
 {
@@ -930,7 +930,7 @@ const questions = [
 "answer": "D",
 "explanation": "时代精神的核心是改革创新（D），这是推动国家发展的动力。A、B选项是思想路线的内容；C选项是民族精神的核心。",
 "lasttime": "2025-06-18T13:25:00Z",
-"subject": "政治",
+"subject": "习新思想",
 "error_number": 1
 }
 
