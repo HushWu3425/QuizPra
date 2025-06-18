@@ -95,7 +95,7 @@
     }
     /* Sidebar styles */
     .sidebar {
-      width: 280px;
+      width: 315px;
       transform: translateX(-100%);
       transition: transform 0.3s ease-in-out;
     }
@@ -141,17 +141,7 @@
           <option value="all">所有科目 <span class="en">All Subjects</span></option>
         </select>
       </div>
-      <div class="mb-6">
-        <label for="difficulty-filter" class="block text-gray-700 text-sm font-bold mb-2">最大难度 <span class="en">Max Difficulty</span></label>
-        <select id="difficulty-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-          <option value="all">所有难度 <span class="en">All Difficulties</span></option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </div>
+      <!-- 删除最大难度筛选相关代码块 -->
       <div class="mb-6">
         <label for="min-error-filter" class="block text-gray-700 text-sm font-bold mb-2">最小错误次数 <span class="en">Min Errors</span></label>
         <select id="min-error-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
@@ -233,13 +223,11 @@
     function populateFilters() {
       const subjectFilter = document.getElementById('subject-filter');
       const minErrorFilter = document.getElementById('min-error-filter');
-      const difficulties = new Set();
       const subjects = new Set();
       let maxErrorNumber = 0;
 
       allQuestions.forEach(q => {
         subjects.add(q.subject);
-        difficulties.add(q.difficulty);
         if (q.error_number > maxErrorNumber) {
           maxErrorNumber = q.error_number;
         }
@@ -259,29 +247,25 @@
         option.textContent = i;
         minErrorFilter.appendChild(option);
       }
-
-      // Difficulty filter is already hardcoded 1-5, no need to populate dynamically unless difficulty can be > 5
     }
 
     function filterAndRenderQuestions() {
       const selectedSubject = document.getElementById('subject-filter').value;
-      const maxDifficulty = document.getElementById('difficulty-filter').value;
+      // 移除 maxDifficulty 相关代码
       const minErrorNumber = parseInt(document.getElementById('min-error-filter').value);
       const lastErrorDate = document.getElementById('last-error-date-filter').value;
 
       filteredQuestions = allQuestions.filter(q => {
         const subjectMatch = selectedSubject === 'all' || q.subject === selectedSubject;
-        const difficultyMatch = maxDifficulty === 'all' || q.difficulty <= parseInt(maxDifficulty);
+        // 移除 difficultyMatch 相关代码
         const errorMatch = q.error_number >= minErrorNumber;
-        
         let dateMatch = true;
         if (lastErrorDate) {
           const questionDate = new Date(q.lasttime).setHours(0,0,0,0);
           const filterDate = new Date(lastErrorDate).setHours(0,0,0,0);
           dateMatch = questionDate >= filterDate;
         }
-
-        return subjectMatch && difficultyMatch && errorMatch && dateMatch;
+        return subjectMatch && errorMatch && dateMatch;
       });
       renderQuestions(filteredQuestions);
     }
@@ -334,7 +318,7 @@
 
     // Add event listeners to filters
     document.getElementById('subject-filter').addEventListener('change', filterAndRenderQuestions);
-    document.getElementById('difficulty-filter').addEventListener('change', filterAndRenderQuestions);
+    // 删除 difficulty-filter 相关事件监听
     document.getElementById('min-error-filter').addEventListener('change', filterAndRenderQuestions);
     document.getElementById('last-error-date-filter').addEventListener('change', filterAndRenderQuestions);
 
