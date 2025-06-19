@@ -1763,7 +1763,7 @@ const questions = [
 "answer": "B",
 "explanation": "十六字方针“集体领导、民主集中、个别酝酿、会议决定”中，“个别酝酿”指决策前的充分协商环节（B正确）。A是原则；C是最终形式；D是领导体制。",
 "lasttime": "2025-06-19T11:27:49Z",
-"subject": "党章党规",
+"subject": "党史党务",
 "error_number": 1
 },
 {
@@ -1802,7 +1802,7 @@ const questions = [
 "answer": "A",
 "explanation": "《党章》第9条规定，无正当理由连续6个月不参加组织生活视为自行脱党，应予以除名（A正确）。B、C适用于轻微违纪；D适用于严重错误但可挽救情形。",
 "lasttime": "2025-06-19T11:27:49Z",
-"subject": "c",
+"subject": "党史党务",
 "error_number": 1
 }
 ];
