@@ -153,8 +153,22 @@
         <input type="date" id="last-error-date-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
       </div>
       <div class="mb-6">
-        <label for="first-error-date-filter" class="block text-gray-700 text-sm font-bold mb-2">最早错误时间 <span class="en">First Error Date</span></label>
-        <input type="date" id="first-error-date-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+        <label for="earliest-error-date-filter" class="block text-gray-700 text-sm font-bold mb-2">最早错误时间 <span class="en">Earliest Error Date</span></label>
+        <input type="date" id="earliest-error-date-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+      </div>
+      
+      <!-- 修改后的重置按钮 -->
+      <div class="mb-6 flex gap-4">
+        </button>
+      </div>
+      <!-- 添加随机抽题按钮 -->
+      <div class="mb-6 flex gap-4">
+        <button id="random-questions" class="flex-1 bg-orange-500 hover:bg-yellow-600 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline transition-colors duration-200">
+          🎲随机抽题
+        </button>
+        <button id="reset-filters" class="flex-1 bg-yellow-600 hover:bg-orange-600 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline transition-colors duration-200">
+          🪃重置筛选
+        </button>
       </div>
     </aside>
 
@@ -255,12 +269,14 @@
 
     function filterAndRenderQuestions() {
       const selectedSubject = document.getElementById('subject-filter').value;
+      // 移除 maxDifficulty 相关代码
       const minErrorNumber = parseInt(document.getElementById('min-error-filter').value);
       const lastErrorDate = document.getElementById('last-error-date-filter').value;
-      const firstErrorDate = document.getElementById('first-error-date-filter').value;
+      const earliestErrorDate = document.getElementById('earliest-error-date-filter').value; // 获取最早错误时间筛选值
 
       filteredQuestions = allQuestions.filter(q => {
         const subjectMatch = selectedSubject === 'all' || q.subject === selectedSubject;
+        // 移除 difficultyMatch 相关代码
         const errorMatch = q.error_number >= minErrorNumber;
         let dateMatch = true;
         if (lastErrorDate) {
@@ -268,9 +284,10 @@
           const filterDate = new Date(lastErrorDate).setHours(0,0,0,0);
           dateMatch = questionDate >= filterDate;
         }
-        if (firstErrorDate) {
+        // 添加最早错误时间筛选逻辑
+        if (earliestErrorDate) {
           const questionDate = new Date(q.lasttime).setHours(0,0,0,0);
-          const filterDate = new Date(firstErrorDate).setHours(0,0,0,0);
+          const filterDate = new Date(earliestErrorDate).setHours(0,0,0,0);
           dateMatch = dateMatch && (questionDate <= filterDate);
         }
         return subjectMatch && errorMatch && dateMatch;
@@ -329,7 +346,28 @@
     // 删除 difficulty-filter 相关事件监听
     document.getElementById('min-error-filter').addEventListener('change', filterAndRenderQuestions);
     document.getElementById('last-error-date-filter').addEventListener('change', filterAndRenderQuestions);
-    document.getElementById('first-error-date-filter').addEventListener('change', filterAndRenderQuestions);
+    
+    // 添加随机抽题功能
+    document.getElementById('random-questions').addEventListener('click', function() {
+    // 从所有题目中随机抽取10道
+    const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+    const random10 = shuffled.slice(0, 10);
+    
+    // 渲染随机题目
+    renderQuestions(random10);
+    });
+    
+    // 重置按钮事件监听
+    document.getElementById('reset-filters').addEventListener('click', function() {
+      // 重置所有筛选控件
+      document.getElementById('subject-filter').value = 'all';
+      document.getElementById('min-error-filter').value = '0';
+      document.getElementById('last-error-date-filter').value = '';
+      document.getElementById('earliest-error-date-filter').value = '';
+      
+      // 重新筛选并渲染题目
+      filterAndRenderQuestions();
+    });
 
     // Initial sidebar state for desktop
     if (window.innerWidth >= 1024) {
