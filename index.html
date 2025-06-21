@@ -152,6 +152,10 @@
         <label for="last-error-date-filter" class="block text-gray-700 text-sm font-bold mb-2">最近错误时间 <span class="en">Last Error Date</span></label>
         <input type="date" id="last-error-date-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
       </div>
+      <div class="mb-6">
+        <label for="first-error-date-filter" class="block text-gray-700 text-sm font-bold mb-2">最早错误时间 <span class="en">First Error Date</span></label>
+        <input type="date" id="first-error-date-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+      </div>
     </aside>
 
     <!-- Main Content -->
@@ -251,19 +255,23 @@
 
     function filterAndRenderQuestions() {
       const selectedSubject = document.getElementById('subject-filter').value;
-      // 移除 maxDifficulty 相关代码
       const minErrorNumber = parseInt(document.getElementById('min-error-filter').value);
       const lastErrorDate = document.getElementById('last-error-date-filter').value;
+      const firstErrorDate = document.getElementById('first-error-date-filter').value;
 
       filteredQuestions = allQuestions.filter(q => {
         const subjectMatch = selectedSubject === 'all' || q.subject === selectedSubject;
-        // 移除 difficultyMatch 相关代码
         const errorMatch = q.error_number >= minErrorNumber;
         let dateMatch = true;
         if (lastErrorDate) {
           const questionDate = new Date(q.lasttime).setHours(0,0,0,0);
           const filterDate = new Date(lastErrorDate).setHours(0,0,0,0);
           dateMatch = questionDate >= filterDate;
+        }
+        if (firstErrorDate) {
+          const questionDate = new Date(q.lasttime).setHours(0,0,0,0);
+          const filterDate = new Date(firstErrorDate).setHours(0,0,0,0);
+          dateMatch = dateMatch && (questionDate <= filterDate);
         }
         return subjectMatch && errorMatch && dateMatch;
       });
@@ -321,6 +329,7 @@
     // 删除 difficulty-filter 相关事件监听
     document.getElementById('min-error-filter').addEventListener('change', filterAndRenderQuestions);
     document.getElementById('last-error-date-filter').addEventListener('change', filterAndRenderQuestions);
+    document.getElementById('first-error-date-filter').addEventListener('change', filterAndRenderQuestions);
 
     // Initial sidebar state for desktop
     if (window.innerWidth >= 1024) {
