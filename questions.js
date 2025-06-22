@@ -2453,11 +2453,11 @@ const questions = [
 {
 "question_id": 183,
 "content": "土豆的可食用部分为：",
-"option_A": "根空",
+"option_A": "根茎",
 "option_B": "根块",
 "option_C": "根叶",
 "option_D": "果实",
-"answer": "B",
+"answer": "A",
 "explanation": "B正确，土豆是块茎（变态茎），储存淀粉。其他选项：A/C为干扰项；D错误，土豆果实（浆果）有毒不可食用。",
 "lasttime": "2025-06-22T03:04:25Z",
 "subject": "科技地理",
@@ -2489,6 +2489,45 @@ const questions = [
 "subject": "科技地理",
 "error_number": 1
 }  
-
+,
+{
+"question_id": 186,
+"content": "2021年6月17日，神舟十二号的三位航天员先后进入天和核心舱，标志着中国人首次进入自己的空间站。关于空间站，下列说法正确的是：",
+"option_A": "中国空间站是无需组装的单模块空间站",
+"option_B": "人类的首个空间站是由多国共同建造的",
+"option_C": "能够按照程序的设定实现多次天地往返",
+"option_D": "属于在近地轨道长期运行的载人航天器",
+"answer": "D",
+"explanation": "D正确，中国空间站（天宫）在340-450km近地轨道运行，设计寿命10年。其他选项：A错误，天宫由天和/问天/梦天三舱组装；B错误，首个空间站（礼炮1号）为苏联单独建造；C错误，空间站本身不具备自主往返能力。",
+"lasttime": "2025-06-22T03:47:33Z",
+"subject": "科技地理",
+"error_number": 1
+},
+{
+"question_id": 187,
+"content": "下列选项中属于基因工程的是：",
+"option_A": "酸奶",
+"option_B": "现代杂交水稻",
+"option_C": "克隆羊",
+"option_D": "加酶洗衣粉",
+"answer": "B",
+"explanation": "B正确，现代杂交水稻采用基因编辑技术，属于基因工程。A属于发酵工程；C克隆羊仅仅设计细胞操作，属于细胞工程。D属于酶工程应用。",
+"lasttime": "2025-06-22T03:47:33Z",
+"subject": "科技地理",
+"error_number": 1
+},
+{
+"question_id": 188,
+"content": "我国科学工作者运用________技术培育出了蔬菜新品种—'白菜-甘蓝'。",
+"option_A": "基因工程",
+"option_B": "遗传工程",
+"option_C": "细胞工程",
+"option_D": "克隆",
+"answer": "C",
+"explanation": "C正确，该品种通过原生质体融合（植物体细胞杂交）培育。其他选项：A/B需DNA层面操作；D属于无性繁殖技术。",
+"lasttime": "2025-06-22T03:47:33Z",
+"subject": "科技地理",
+"error_number": 1
+}  
 
 ];
