@@ -293,9 +293,9 @@ const questions = [
 "option_D": "",
 "answer": "B",
 "explanation": "材料中科学发现颠覆了旧有理论，体现了真理性认识随着实践和社会历史条件的变化而不断丰富和发展。A选项虽然正确，但材料更强调认识的动态发展；C选项错误，材料未涉及自然观和历史观的统一问题。",
-"lasttime": "2025-06-18T10:19:00+08:00",
+"lasttime": "2025-06-22T10:19:00+08:00",
 "subject": "马原",
-"error_number": 1
+"error_number": 2
 },
 {
 "question_id": 22,
