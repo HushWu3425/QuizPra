@@ -2381,7 +2381,7 @@ const questions = [
 "answer": "C",
 "explanation": "C错误，瓷器主要成分是硅酸盐（非单纯二氧化硅）。其他选项：A正确，青铜为铜锡合金；B正确，蚕丝蛋白含量超97%；D正确，铜绿（碱式碳酸铜）属于盐类。",
 "lasttime": "2025-06-22T02:44:52Z",
-"subject": "化学",
+"subject": "科技地理",
 "error_number": 1
 },
 {
@@ -2394,7 +2394,7 @@ const questions = [
 "answer": "D",
 "explanation": "D错误，卵既是受力物体也是施力物体（力的作用是相互的）。其他选项：A正确，水面反光属于镜面反射；B正确，两马速度相同则相对静止；C正确，回声现象涉及声波反射。",
 "lasttime": "2025-06-22T02:44:52Z",
-"subject": "物理",
+"subject": "科技地理",
 "error_number": 1
 },
 {
@@ -2407,7 +2407,7 @@ const questions = [
 "answer": "C",
 "explanation": "C错误，激光需人工激发（自然界极罕见）。其他选项：A正确，爱因斯坦提出受激辐射理论；B正确，激光本质是受激辐射光放大；D正确，激光通信已广泛应用。",
 "lasttime": "2025-06-22T02:44:52Z",
-"subject": "物理",
+"subject": "科技地理",
 "error_number": 1
 },
 {
@@ -2420,7 +2420,7 @@ const questions = [
 "answer": "A",
 "explanation": "A正确，镁/钠等轻金属遇干粉会剧烈反应（需专用D类灭火器）。其他选项：B/C/D均适用干粉灭火（BC灭火原理为化学抑制，D因干粉不导电）。",
 "lasttime": "2025-06-22T02:44:52Z",
-"subject": "化学",
+"subject": "科技地理",
 "error_number": 1
 },
 {
@@ -2433,7 +2433,7 @@ const questions = [
 "answer": "B",
 "explanation": "B错误，干冰灭火主要利用其气化吸热和隔绝氧气（非凝华）。其他选项：A正确，高浓度CO2抑制有氧菌；C正确，尿素合成反应：CO2+2NH3→CO(NH2)2+H2O；D正确，液态CO2可溶解油脂类污渍。",
 "lasttime": "2025-06-22T02:44:52Z",
-"subject": "化学",
+"subject": "科技地理",
 "error_number": 1
 }
 ,
@@ -2447,7 +2447,7 @@ const questions = [
 "answer": "A",
 "explanation": "A正确，氧气是光合作用的产物（非反应物）。其他选项均为光合作用必需物质：B叶绿体是反应场所；C水提供电子和氢离子；D二氧化碳参与碳反应。",
 "lasttime": "2025-06-22T03:04:25Z",
-"subject": "生物",
+"subject": "科技地理",
 "error_number": 1
 },
 {
@@ -2460,7 +2460,7 @@ const questions = [
 "answer": "B",
 "explanation": "B正确，土豆是块茎（变态茎），储存淀粉。其他选项：A/C为干扰项；D错误，土豆果实（浆果）有毒不可食用。",
 "lasttime": "2025-06-22T03:04:25Z",
-"subject": "生物",
+"subject": "科技地理",
 "error_number": 1
 },
 {
@@ -2473,7 +2473,7 @@ const questions = [
 "answer": "C",
 "explanation": "C错误，量子通信仅保障信息安全（无法逻辑运算），且远距离需量子中继。其他选项：A正确（5G三大特性）；B正确（8K需100Mbps以上带宽）；D正确（卫星通信原理）。",
 "lasttime": "2025-06-22T03:04:25Z",
-"subject": "科技",
+"subject": "科技地理",
 "error_number": 1
 },
 {
@@ -2486,7 +2486,7 @@ const questions = [
 "answer": "C",
 "explanation": "C正确，5G通过Massive MIMO等技术降低功耗（非高功耗）。其他均为5G特性：A可靠性达99.999%；B时延1ms级；D每平方公里百万级连接。",
 "lasttime": "2025-06-22T03:04:25Z",
-"subject": "科技",
+"subject": "科技地理",
 "error_number": 1
 }  
 
