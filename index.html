@@ -304,7 +304,7 @@
       } else {
         questionsToRender.forEach((q) => {
           let questionHtml = `<div class='question-card p-8 mb-6'>
-            <div class='zh mb-2'>Q${q.question_id}：${q.content}</div>
+            <div class='zh mb-2'>Q${q.question_id}：${q.content}</div> 
             <div class='en mb-4'>科目 Subject: ${q.subject} | 难度 Difficulty: ${q.difficulty} | 错误次数 Errors: ${q.error_number} | 最近错误 Last Error: ${q.lasttime || 'N/A'}</div>`;
           ['A','B','C','D'].forEach(opt => {
             questionHtml += `<button class='option-btn' data-question-id='${q.question_id}' data-opt='${opt}'>${opt}. ${q['option_' + opt]}</button><br/>`;
