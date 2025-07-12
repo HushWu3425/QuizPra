@@ -4583,7 +4583,7 @@ const questions = [
     "explanation": "根据刑法第114条及第312条，马某盗窃机动车道窨井盖危及公共安全构成以危险方法危害公共安全罪（最高人民法院指导案例104号）；王某明知赃物仍收购构成掩饰、隐瞒犯罪所得罪。",
     "lasttime": "2025-07-04T15:01:22Z",
     "subject": "法律法规",
-    "error_number": 1
+    "error_number": 2
 },
 {
     "question_id": 345,
