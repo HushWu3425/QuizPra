@@ -6751,6 +6751,74 @@ const questions = [
     "subject": "数量关系",
     "knowledge": "倍数特性",
     "error_number": 1
+},
+// 统一战线四大关系
+{
+    "question_id": 518,
+    "content": "习近平总书记在中央统战工作会议上指出的'四大关系'不包括：",
+    "option_A": "潜绩和显绩的关系",
+    "option_B": "民生和团结的关系",
+    "option_C": "原则性和灵活性的关系",
+    "option_D": "固守圆心和扩大共识的关系",
+    "answer": "B",
+    "explanation": "根据2022年7月中央统战工作会议精神：<br>四大关系为：<br>1. 固守圆心与扩大共识<br>2. 潜绩与显绩<br>3. 原则性与灵活性<br>4. 团结与斗争<br>'民生与团结'非会议提出关系，系干扰项。",
+    "lasttime": "2025-07-19T12:17:53Z",
+    "subject": "时政热点",
+    "error_number": 1
+},
+
+// 全过程人民民主
+{
+    "question_id": 519,
+    "content": "关于健全全过程人民民主制度体系的举措，下列说法正确的有几项？<br>①坚持完善人民代表大会制度<br>②发挥政协专门协商机构作用<br>③发挥群团组织桥梁纽带作用<br>④健全协商于决策之前的落实机制<br>⑤建立港澳同胞政治引领机制",
+    "option_A": "5项",
+    "option_B": "4项",
+    "option_C": "3项",
+    "option_D": "2项",
+    "answer": "C",
+    "explanation": "根据二十届三中全会《决定》：<br>正确项：<br>①（人大制度根本地位）<br>②（政协协商机制建设）<br>③（群团组织功能定位）<br>错误项：<br>④应为'决策前和决策中'落实机制<br>⑤应为'党外知识分子'引领机制",
+    "lasttime": "2025-07-19T12:17:53Z",
+    "subject": "时政热点",
+    "error_number": 1
+},
+{
+    "question_id": 520,
+    "content": "下列关于我国河流的说法不正确的是：",
+    "option_A": "黑龙江是中国的内河",
+    "option_B": "长江最大的支流是汉江",
+    "option_C": "黄果树瀑布、桂林山水都位于珠江流域",
+    "option_D": "'大漠孤烟直，长河落日圆'中的'河'指黄河",
+    "answer": "A",
+    "explanation": "根据中国地理国情：<br>A项错误（黑龙江现为中俄界河，1860年《北京条约》后失去出海口）；<br>B项正确（汉江全长1577km，流域面积15.9万km²）；<br>C项正确（珠江流域覆盖黔桂粤，黄果树在贵州安顺，桂林在广西）；<br>D项正确（王维诗句描写宁夏黄河景观）。<br>国际河流与内河的法律定义需严格区分。",
+    "lasttime": "2025-07-19T12:17:53Z",
+    "subject": "科技地理",
+    "error_number": 1
+},
+{
+    "question_id": 521,
+    "content": "乘坐升降电梯上楼时，从启动到停止过程中身体状态的变化顺序是：",
+    "option_A": "失重→正常→超重",
+    "option_B": "超重→正常→失重",
+    "option_C": "超重→失重→正常",
+    "option_D": "正常→超重→失重",
+    "answer": "B",
+    "explanation": "根据牛顿运动定律分析：<br>1. 启动加速上升：支持力>重力→超重（选项B首位正确）<br>2. 匀速运行：支持力=重力→正常<br>3. 减速停止：支持力<重力→失重（选项B末位正确）<br>典型错误：<br>- A项混淆上下楼状态<br>- C项遗漏匀速阶段<br>- D项初始状态错误",
+    "lasttime": "2025-07-19T12:17:53Z",
+    "subject": "科技地理",
+    "error_number": 1
+},
+{
+    "question_id": 522,
+    "content": "下列哪句诗涉及的地形接近下图？<img src='https://fb.fbstatic.cn/api/tarzan/images/16e9c84dd643e6d.png?width=700' width='200' />",
+    "option_A": "横看成岭侧成峰，远近高低各不同",
+    "option_B": "连峰去天不盈尺，枯松倒挂倚绝壁",
+    "option_C": "天姥连天向天横，势拔五岳掩赤城",
+    "option_D": "天寒日暮山谷里，肠断非关陇头水",
+    "answer": "D",
+    "explanation": "<img src='https://ts1.tc.mm.bing.net/th/id/R-C.e30a35f9c4142a1c7a6929e0cc80aa42?rik=%2f7mFDq6XSVXAvg&riu=http%3a%2f%2fwww.cgzdl.com%2fuploads%2fallimg%2f2107%2f2021072709(13).gif&ehk=F8aBZe%2b%2fSvbO3dbH3k9u0q%2femxn8SO%2feSz9wsDn2SCs%3d&risl=&pid=ImgRaw&r=0' width='500' />根据等高线地形图分析：<br>D项正确（诗句明确指向山谷地形，图示等高线向高处凸出）；<br>其他选项：<br>A项描述多峰山体（需多个闭合等高线）<br>B项描写陡峭山脊（等高线向低处凸出）<br>C项形容孤立高峰（闭合高海拔等高线）<br>地形特征与诗句意象需精确匹配。",
+    "lasttime": "2025-07-19T12:17:53Z",
+    "subject": "科技地理",
+    "error_number": 1
 }
 
 
