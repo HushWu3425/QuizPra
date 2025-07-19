@@ -173,6 +173,13 @@
           <option value="all">所有科目 <span class="en">All Subjects</span></option>
         </select>
       </div>
+            <!-- 新增知识点筛选器 -->
+      <div class="mb-6">
+        <label for="knowledge-filter" class="block text-gray-700 text-sm font-bold mb-2">知识点 <span class="en">Knowledge</span></label>
+        <select id="knowledge-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+          <option value="all">所有知识点 <span class="en">All Knowledge</span></option>
+        </select>
+      </div>
       <!-- 删除最大难度筛选相关代码块 -->
       <div class="mb-6">
         <label for="min-error-filter" class="block text-gray-700 text-sm font-bold mb-2">最小错误次数 <span class="en">Min Errors</span></label>
@@ -180,6 +187,7 @@
           <option value="0">所有 <span class="en">All</span></option>
         </select>
       </div>
+
       <div class="mb-6">
         <label for="last-error-date-filter" class="block text-gray-700 text-sm font-bold mb-2">最近错误时间 <span class="en">Last Error Date</span></label>
         <input type="date" id="last-error-date-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
@@ -277,11 +285,16 @@
     function populateFilters() {
       const subjectFilter = document.getElementById('subject-filter');
       const minErrorFilter = document.getElementById('min-error-filter');
+      const knowledgeFilter = document.getElementById('knowledge-filter'); // 获取知识点筛选器
       const subjects = new Set();
+      const knowledges = new Set(); // 用于存储所有唯一的知识点
       let maxErrorNumber = 0;
 
       allQuestions.forEach(q => {
         subjects.add(q.subject);
+        if (q.knowledge) { // 确保知识点存在
+          knowledges.add(q.knowledge);
+        }
         if (q.error_number > maxErrorNumber) {
           maxErrorNumber = q.error_number;
         }
@@ -292,6 +305,14 @@
         option.value = subject;
         option.textContent = subject;
         subjectFilter.appendChild(option);
+      });
+
+      // Populate knowledge filter
+      knowledges.forEach(knowledge => {
+        const option = document.createElement('option');
+        option.value = knowledge;
+        option.textContent = knowledge;
+        knowledgeFilter.appendChild(option);
       });
 
       // Populate min error filter
@@ -305,6 +326,7 @@
 
     function filterAndRenderQuestions() {
       const selectedSubject = document.getElementById('subject-filter').value;
+      const selectedKnowledge = document.getElementById('knowledge-filter').value; // 获取选中的知识点
       // 移除 maxDifficulty 相关代码
       const minErrorNumber = parseInt(document.getElementById('min-error-filter').value);
       const lastErrorDate = document.getElementById('last-error-date-filter').value;
@@ -312,6 +334,7 @@
 
       filteredQuestions = allQuestions.filter(q => {
         const subjectMatch = selectedSubject === 'all' || q.subject === selectedSubject;
+        const knowledgeMatch = selectedKnowledge === 'all' || q.knowledge === selectedKnowledge; // 知识点匹配逻辑
         // 移除 difficultyMatch 相关代码
         const errorMatch = q.error_number >= minErrorNumber;
         let dateMatch = true;
@@ -326,7 +349,7 @@
           const filterDate = new Date(earliestErrorDate).setHours(0,0,0,0);
           dateMatch = dateMatch && (questionDate <= filterDate);
         }
-        return subjectMatch && errorMatch && dateMatch;
+        return subjectMatch && knowledgeMatch && errorMatch && dateMatch; // 组合所有筛选条件
       });
       renderQuestions(filteredQuestions);
     }
@@ -379,6 +402,7 @@
 
     // Add event listeners to filters
     document.getElementById('subject-filter').addEventListener('change', filterAndRenderQuestions);
+    document.getElementById('knowledge-filter').addEventListener('change', filterAndRenderQuestions); // 添加知识点筛选器的事件监听
     // 删除 difficulty-filter 相关事件监听
     document.getElementById('min-error-filter').addEventListener('change', filterAndRenderQuestions);
     document.getElementById('last-error-date-filter').addEventListener('change', filterAndRenderQuestions);
@@ -400,6 +424,7 @@
       document.getElementById('min-error-filter').value = '0';
       document.getElementById('last-error-date-filter').value = '';
       document.getElementById('earliest-error-date-filter').value = '';
+      document.getElementById('knowledge-filter').value = 'all'; // 重置知识点筛选器
       
       // 重新筛选并渲染题目
       filterAndRenderQuestions();
