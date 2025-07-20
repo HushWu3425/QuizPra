@@ -20,6 +20,11 @@
       color: #222;
       overflow-x: hidden;
     }
+    body.dark-mode {
+      background: #222;
+      color: #eee;
+      margin-right: 0px;
+    }
     .highlight {
       color: #FE1110;
     }
@@ -30,9 +35,17 @@
       background: #fff;
       width: 100%; /* Added to make question card take full width */
     }
+    body.dark-mode .question-card {
+      background: #333;
+      color: #eee;
+      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.3);
+    }
     .question-card:hover {
       transform: translateY(-8px) scale(1.02);
       box-shadow: 0 8px 32px 0 rgba(254,17,16,0.10);
+    }
+    body.dark-mode .question-card:hover {
+      box-shadow: 0 8px 32px 0 rgba(254,17,16,0.30);
     }
     .apple-scroll {
       transition: background 0.5s, box-shadow 0.5s;
@@ -41,11 +54,18 @@
       background: rgba(255,255,255,0.95);
       box-shadow: 0 2px 16px 0 rgba(254,17,16,0.08);
     }
+    body.dark-mode .apple-scroll.scrolled {
+      background: rgba(51,51,51,0.95);
+      box-shadow: 0 2px 16px 0 rgba(254,17,16,0.20);
+    }
     .en {
       font-size: 0.75rem; /* Adjusted from 0.9rem */
       color: #888;
       font-weight: 400;
       letter-spacing: 0.04em;
+    }
+    body.dark-mode .en {
+      color: #bbb;
     }
     .zh {
       font-size: 1.1rem; /* Adjusted from 1.35rem */
@@ -64,6 +84,11 @@
       width: 100%; /* Make buttons full width on small screens */
       text-align: left;
     }
+    body.dark-mode .option-btn {
+      background: #444;
+      border-color: #555;
+      color: #eee;
+    }
     @media (min-width: 768px) {
       .option-btn {
         width: auto; /* Auto width on larger screens */
@@ -74,15 +99,27 @@
       color: #FE1110;
       background: #fff0f0;
     }
+    body.dark-mode .option-btn.selected {
+      background: #663333;
+      color: #FE1110;
+    }
     .option-btn.correct {
       border-color: #16a34a;
       color: #16a34a;
       background: #f0fff4;
     }
+    body.dark-mode .option-btn.correct {
+      background: #2a5a3a;
+      color: #16a34a;
+    }
     .option-btn.incorrect {
       border-color: #FE1110;
       color: #FE1110;
       background: #fff0f0;
+    }
+    body.dark-mode .option-btn.incorrect {
+      background: #663333;
+      color: #FE1110;
     }
     .explanation {
       background: #f9fafb;
@@ -93,11 +130,19 @@
       font-size: 1rem;
       color: #444;
     }
+    body.dark-mode .explanation {
+      background: #3a3a3a;
+      color: #eee;
+    }
     /* Sidebar styles */
     .sidebar {
       width: 315px;
       transform: translateX(-100%);
       transition: transform 0.3s ease-in-out;
+    }
+    body.dark-mode .sidebar {
+      background: #333;
+      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.3);
     }
     .sidebar.open {
       transform: translateX(0);
@@ -134,6 +179,10 @@
       transition: background-color 0.1s, transform 0.1s;
       z-index: 1000;
     }
+    body.dark-mode .scroll-button {
+      background-color: #444;
+      color: #bbb;
+    }
 
     .scroll-button:hover {
       background-color: #e73f3fda; /* 悬停时颜色更深 */
@@ -148,6 +197,23 @@
     #scroll-to-bottom {
       bottom: 30px;
     }
+
+    /* Dark mode toggle button */
+    .dark-mode-toggle {
+      cursor: pointer;
+      font-size: 24px;
+      color: #888;
+      transition: color 0.3s;
+    }
+    .dark-mode-toggle:hover {
+      color: #FE1110;
+    }
+    body.dark-mode .dark-mode-toggle {
+      color: #eee;
+    }
+    body.dark-mode .dark-mode-toggle:hover {
+      color: #FE1110;
+    }
   </style>
 </head>
 <body>
@@ -155,6 +221,10 @@
     <div class="flex items-center">
       <button id="sidebar-toggle" class="sidebar-toggle-btn material-icons text-gray-600 mr-4 lg:hidden">menu</button>
       <!-- Removed: 刷题练习 and 网易云风格 | Netease Cloud Style -->
+    </div>
+    <!-- Dark Mode Toggle -->
+    <div class="absolute right-2 top-1/2 -translate-y-1/2">
+      <span id="dark-mode-toggle" class="material-icons dark-mode-toggle">dark_mode</span>
     </div>
   </header>
 
@@ -442,6 +512,28 @@
 
     document.getElementById('scroll-to-bottom').addEventListener('click', () => {
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    });
+
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+
+    // Check for saved dark mode preference
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      body.classList.add('dark-mode');
+      darkModeToggle.textContent = 'light_mode';
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+      if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
+        darkModeToggle.textContent = 'dark_mode';
+        localStorage.setItem('darkMode', 'disabled');
+      } else {
+        body.classList.add('dark-mode');
+        darkModeToggle.textContent = 'light_mode';
+        localStorage.setItem('darkMode', 'enabled');
+      }
     });
   </script>
 </body>
