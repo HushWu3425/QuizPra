@@ -214,6 +214,11 @@
     body.dark-mode .dark-mode-toggle:hover {
       color: #FE1110;
     }
+
+    /* Random quiz button */
+    #random-quiz-button {
+      bottom: 110px; /* Adjust position above scroll-to-top */
+    }
   </style>
 </head>
 <body>
@@ -287,6 +292,9 @@
       <div id="question-container"></div>
     </main>
   </div>
+
+  <!-- Random Quiz Button -->
+  <div id="random-quiz-button" class="scroll-button material-icons">casino</div>
 
   <!-- Scroll to Top/Bottom Buttons -->
   <div id="scroll-to-top" class="scroll-button material-icons">keyboard_arrow_up</div>
@@ -485,6 +493,13 @@
     
     // 渲染随机题目
     renderQuestions(random10);
+    });
+
+    // 新增骰子按钮的点击事件监听器
+    document.getElementById('random-quiz-button').addEventListener('click', function() {
+      const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
+      const random10 = shuffled.slice(0, 10);
+      renderQuestions(random10);
     });
     
     // 重置按钮事件监听
