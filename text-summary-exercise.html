@@ -297,6 +297,7 @@
         font-size: 1.5rem;
       }
     }
+    
   </style>
 </head>
 <body>
@@ -474,7 +475,7 @@
           <div class="exercise-card p-8 mb-6 fade-in" id="exercise-${index}">
             <div class="flex items-center justify-between mb-2">
               <div>
-                <span class="zh">题${exercise.txt_id}</span>
+                <span class="zh">题目 ID: ${exercise.txt_id}</span>
               </div>
               <div class="flex items-center">
                 <span class="badge bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs mr-2">${exercise.subject}</span>
@@ -509,7 +510,10 @@
             
             <div class="flex justify-between mt-3">
               <button id="submit-btn-${index}" class="submit-btn" onclick="submitAnswer(${index})">
-                <i class="fas fa-check mr-1"></i>提交</span>
+                <i class="fas fa-check mr-1"></i>提交
+              </button>
+              <button id="reset-btn-${index}" class="reset-btn" onclick="resetExercise(${index})">
+                <i class="fas fa-redo mr-1"></i>重新练习
               </button>
             </div>
           </div>
@@ -648,14 +652,21 @@
     }
 
     // 重置练习
-    // 删除整个resetExercises函数
-    function resetExercises() {
-      currentExerciseIndex = 0;
-      completedExercises = 0;
-      correctAnswers = 0;
-      updateStats();
-      renderCurrentExercise();
+    // 添加resetExercise函数
+    function resetExercise(index) {
+    // 重置文本框
+    document.getElementById(`user-answer-${index}`).value = '';
+    document.getElementById(`user-answer-${index}`).disabled = false;
+    
+    // 隐藏比较结果和解析
+    document.getElementById(`comparison-result-${index}`).classList.add('hidden');
+    document.getElementById(`explanation-${index}`).classList.add('hidden');
+    
+    // 重新启用提交按钮
+    document.getElementById(`submit-btn-${index}`).disabled = false;
+    document.getElementById(`submit-btn-${index}`).classList.remove('opacity-50');
     }
+
 
     // Apple官网风格滚动动效
     window.addEventListener('scroll', function() {
