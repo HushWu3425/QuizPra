@@ -519,7 +519,7 @@ const questions = [
 "explanation": "党的十一届三中全会到党的十二大前夕是邓小平理论准备和初步提出阶段",
 "lasttime": "2025-06-18T10:42:00Z",
 "subject": "毛概和中特",
-"error_number": 1
+"error_number": 2
 },
 {
 "question_id": 39,
@@ -585,7 +585,7 @@ const questions = [
 "explanation": "题干强调“最广大人民的根本利益”是党执政的核心，符合“三个代表”重要思想。A、B、D选项虽重要，但不如C选项全面体现题干要求。",
 "lasttime": "2025-06-18T11:15:00Z",
 "subject": "毛概和中特",
-"error_number": 1
+"error_number": 2
 },
 {
 "question_id": 44,
@@ -850,7 +850,7 @@ const questions = [
 "explanation": "党面临的四大考验是执政考验、改革开放考验、市场经济考验、外部环境考验（B），这是党中央对长期执政风险的清醒判断。其他选项混淆了“四大考验”与“四大危险”的内容。",
 "lasttime": "2025-06-18T13:15:00Z",
 "subject": "习新思想",
-"error_number": 1
+"error_number": 2
 }
 ,
 
@@ -1209,7 +1209,7 @@ const questions = [
 "explanation": "C项出自郑成功的诗，描述其收复台湾的壮举（“逐荷夷”指驱逐荷兰殖民者）。其他选项：A（戚继光抗倭）、B（岳飞抗金）、D（左宗棠收复新疆）。",
 "lasttime": "2025-06-18T13:42:00+08:00",
 "subject": "人文历史",
-"error_number": 1
+"error_number": 2
 }
 ,
 {
@@ -2500,7 +2500,7 @@ const questions = [
 "explanation": "D正确，中国空间站（天宫）在340-450km近地轨道运行，设计寿命10年。其他选项：A错误，天宫由天和/问天/梦天三舱组装；B错误，首个空间站（礼炮1号）为苏联单独建造；C错误，空间站本身不具备自主往返能力。",
 "lasttime": "2025-06-22T03:47:33Z",
 "subject": "科技地理",
-"error_number": 1
+"error_number": 2
 },
 {
 "question_id": 187,
@@ -3142,7 +3142,7 @@ const questions = [
 "explanation": "正确答案为A（①②③）。习近平总书记明确强调完善'强农、惠农、富农'三位一体的政策支持体系，'兴农'是乡村振兴的总体目标而非具体支持制度。",
 "lasttime": "2025-06-30T09:31:47Z",
 "subject": "时政热点",
-"error_number": 1
+"error_number": 2
 },
 {
 "question_id": 235,
@@ -3709,7 +3709,7 @@ const questions = [
 "explanation": "乙公司书面承诺偿还3万元构成债务承认（民法典192条），产生新的债权债务关系。起诉后撤销承诺无效，仍需履行3万元。",
 "lasttime": "2025-07-03T21:14:50Z",
 "subject": "法律法规",
-"error_number": 1
+"error_number": 2
 },
 {
 "question_id": 278,
@@ -4752,7 +4752,7 @@ const questions = [
     "explanation": "根据刑法第238条第3款，为索取债务非法扣押、拘禁他人的构成非法拘禁罪。与绑架罪（刑法第239条）的关键区别在于存在合法债权基础（最高人民法院关于非法拘禁案件司法解释第5条）。",
     "lasttime": "2025-07-04T15:01:22Z",
     "subject": "法律法规",
-    "error_number": 1
+    "error_number": 2
 },
 {
     "question_id": 358,
@@ -4830,7 +4830,7 @@ const questions = [
     "explanation": "根据刑法第264条，乙以非法占有为目的启动车辆，已着手实施盗窃行为，因意志以外原因未得逞，构成盗窃未遂（最高人民法院关于盗窃案件司法解释第12条）。汽车未脱离甲控制不构成既遂，且遗忘物需权利人完全丧失控制才可能构成侵占。",
     "lasttime": "2025-07-04T15:01:22Z",
     "subject": "法律法规",
-    "error_number": 2
+    "error_number": 3
 },
 {
     "question_id": 364,
@@ -4856,7 +4856,7 @@ const questions = [
     "explanation": "根据刑法第264条，乙趁甲对财物短暂失控之机秘密窃取，构成盗窃罪。与抢夺罪（刑法第267条）的区别在于未实施公然夺取行为；与侵占罪（刑法第270条）的区别在于财物尚未脱离权利人控制范围（最高人民法院关于盗窃案件司法解释第5条）。",
     "lasttime": "2025-07-04T15:01:22Z",
     "subject": "法律法规",
-    "error_number": 1
+    "error_number": 2
 },
 {
     "question_id": 366,
@@ -5714,7 +5714,7 @@ const questions = [
     "explanation": "根据《上市公司治理准则》第38条及《公司法》第121条，D项正确（审计委员会成员应为董事）。A项错误（高管不得兼任）；B项错误（股东非当然成员）；C项错误（职工董事另设）。",
     "lasttime": "2025-07-08T20:48:19Z",
     "subject": "法律法规",
-    "error_number": 1
+    "error_number": 2
 },
 {
     "question_id": 436,
@@ -6111,7 +6111,7 @@ const questions = [
     "explanation": "根据《意见》第三章：<br>①（数量不减）<br>②（质量不降）<br>④（产能相当）为占补平衡核心要求（自然资源部2024年解读）；<br>③（动态平衡）属耕地总量控制概念（《土地管理法》第32条）。正确答案为①②④组合。",
     "lasttime": "2025-07-11T10:24:01Z",
     "subject": "时政热点",
-    "error_number": 1
+    "error_number": 2
 },
 {
     "question_id": 466,
@@ -6332,7 +6332,7 @@ const questions = [
     "explanation": "根据外交部发布讲话全文：<br>正确建议为开放融通（经济一体化）、绿色创新（新质生产力）、普惠包容（民生保障）<br>'协调高效机制'属干扰项（系东盟峰会表述）<br>APEC聚焦'大家庭'合作模式（非机制建设）。",
     "lasttime": "2025-07-11T10:24:01Z",
     "subject": "时政热点",
-    "error_number": 1
+    "error_number": 2
 },
 {
     "question_id": 483,
@@ -7011,6 +7011,6 @@ const questions = [
     "subject": "时政热点",
     "knowledge": "",
     "error_number": 1
-}
+},
 
 ];
