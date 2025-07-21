@@ -294,6 +294,7 @@
   </div>
 
   <!-- Random Quiz Button -->
+  <div id="text-summary-exercise-button" class="scroll-button material-icons" style="bottom: 150px;">description</div>
   <div id="random-quiz-button" class="scroll-button material-icons">casino</div>
 
   <!-- Scroll to Top/Bottom Buttons -->
@@ -493,6 +494,11 @@
     
     // 渲染随机题目
     renderQuestions(random10);
+    });
+
+    // 新增文本总结练习按钮的点击事件监听器
+    document.getElementById('text-summary-exercise-button').addEventListener('click', function() {
+      window.location.href = 'text-summary-exercise.html';
     });
 
     // 新增骰子按钮的点击事件监听器
