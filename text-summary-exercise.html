@@ -287,6 +287,7 @@
   </main>
 
   <!-- Scroll to Top/Bottom Buttons -->
+  <div id="go-to-main-page" class="scroll-button material-icons" style="bottom: 110px;">home</div>
   <div id="scroll-to-top" class="scroll-button material-icons">keyboard_arrow_up</div>
   <div id="scroll-to-bottom" class="scroll-button material-icons">keyboard_arrow_down</div>
 
@@ -543,6 +544,11 @@
 
     document.getElementById('scroll-to-bottom').addEventListener('click', () => {
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    });
+
+    // 新增跳转到主页面的按钮功能
+    document.getElementById('go-to-main-page').addEventListener('click', () => {
+      window.location.href = 'index.html';
     });
 
     // 暗黑模式切换
