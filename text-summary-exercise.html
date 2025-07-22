@@ -545,28 +545,30 @@
     }
 
     // 提交答案
+    // 修改第573行的submitAnswer函数
     function submitAnswer(index) {
-      const userAnswer = document.getElementById(`user-answer-${index}`).value.trim();
-      if (!userAnswer) {
-        alert('请输入你的总结！');
-        return;
-      }
+    const userAnswer = document.getElementById(`user-answer-${index}`).value.trim();
+    if (!userAnswer) {
+    alert('请输入你的总结！');
+    return;
+    }
     
-      const exercise = allExercises[index];
-      const referenceAnswer = exercise.answer;
-      
-      // 比较答案
-      const comparisonResult = compareAnswers(userAnswer, referenceAnswer);
-      document.getElementById(`comparison-result-${index}`).innerHTML = comparisonResult;
-      document.getElementById(`comparison-result-${index}`).classList.remove('hidden');
-      
-      // 显示解析
-      document.getElementById(`explanation-${index}`).classList.remove('hidden');
-      
-      // 禁用提交按钮和文本框
-      document.getElementById(`submit-btn-${index}`).disabled = true;
-      document.getElementById(`submit-btn-${index}`).classList.add('opacity-50');
-      document.getElementById(`user-answer-${index}`).disabled = true;
+    // 关键修复：使用filteredExercises而不是allExercises
+    const exercise = filteredExercises[index];
+    const referenceAnswer = exercise.answer;
+    
+    // 比较答案
+    const comparisonResult = compareAnswers(userAnswer, referenceAnswer);
+    document.getElementById(`comparison-result-${index}`).innerHTML = comparisonResult;
+    document.getElementById(`comparison-result-${index}`).classList.remove('hidden');
+    
+    // 显示解析
+    document.getElementById(`explanation-${index}`).classList.remove('hidden');
+    
+    // 禁用提交按钮和文本框
+    document.getElementById(`submit-btn-${index}`).disabled = true;
+    document.getElementById(`submit-btn-${index}`).classList.add('opacity-50');
+    document.getElementById(`user-answer-${index}`).disabled = true;
     }
 
     // 比较用户答案和参考答案
