@@ -346,9 +346,10 @@
   </main>
 
   <!-- Scroll to Top/Bottom Buttons -->
-  <div id="go-to-main-page" class="scroll-button material-icons" style="bottom: 110px;">home</div>
+  <div id="go-to-main-page" class="scroll-button material-icons" style="bottom: 150px;">home</div>
   <div id="scroll-to-top" class="scroll-button material-icons">keyboard_arrow_up</div>
   <div id="scroll-to-bottom" class="scroll-button material-icons">keyboard_arrow_down</div>
+  <div id="random-exercise" class="scroll-button material-icons" style="bottom: 110px;">casino</div>
 
   <script>
     // 从TextExe.js加载题目数据
@@ -418,6 +419,19 @@
       filteredExercises = [...allExercises];
       renderCurrentExercise();
     }
+
+        // 添加随机抽题函数
+  function getRandomExercises(count) {
+      const shuffled = [...filteredExercises].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+  }
+
+  // 绑定骰子按钮点击事件
+  document.getElementById('random-exercise').addEventListener('click', () => {
+      const randomExercises = getRandomExercises(5);
+      filteredExercises = randomExercises;
+      renderCurrentExercise();
+  });
     
     // 加载题目数据
     function loadExercises() {
@@ -734,3 +748,16 @@
   </script>
 </body>
 </html>
+
+// 添加随机抽题函数
+function getRandomExercises(count) {
+    const shuffled = [...filteredExercises].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+}
+
+// 绑定骰子按钮点击事件
+document.getElementById('random-exercise').addEventListener('click', () => {
+    const randomExercises = getRandomExercises(5);
+    filteredExercises = randomExercises;
+    renderCurrentExercise();
+});
