@@ -96,7 +96,7 @@ const Texts = [
 "answer": "干部保持清醒认识，因地制宜探索绿色发展路径。",
 "explanation": "「认识清醒」可以作为总括词，本段作为总括句。",
 "lasttime": "2025-06-16T00:00:00Z",
-"subject": "",
+"subject": "概括原因",
 "error_number": 1
 },
 {
@@ -106,7 +106,7 @@ const Texts = [
 "answer": "推进城乡风貌样板区试点建设。根据发展规划，结合美丽城镇建设，打造优美环境。",
 "explanation": "「根据」、「结合」都很虚，只有「推进试点建设」最适合作为总括词",
 "lasttime": "2025-06-16T00:00:00Z",
-"subject": "",
+"subject": "概括原因",
 "error_number": 1
 },
 {
@@ -116,8 +116,8 @@ const Texts = [
 "answer": "盘活民宿非假日经济。企业与民宿推行卫星办公，提高入住率",
 "explanation": "「提高入住率」是结果，但是「实现绿色发展」的原因，依据是「结果」是否为最终结果，是否为「绿色发展的内涵」",
 "lasttime": "2025-06-16T00:00:00Z",
-"subject": "",
-"error_number": 1
+"subject": "概括原因",
+"error_number": 2
 },
 {
 "txt_id": 13,
