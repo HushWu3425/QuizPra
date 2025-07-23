@@ -7244,10 +7244,10 @@ const questions = [
     "option_C": "全体居民",
     "option_D": "全体国民",
     "answer": "A",
-    "explanation": "根据《反分裂国家法》第2条规定，维护国家主权和领土完整是<b style='color:red'>全中国人民</b>的共同义务。'人民'概念包含港澳台同胞，比'公民'（法律概念）更符合政治表述。",
+    "explanation": "A正确：'人民'是政治概念，包括港澳台同胞；<br  />B错误：'公民'是法律概念，不包括未取得中国国籍者；<br  />C错误：'居民'无政治法律约束力；<br  />D错误：'国民'概念不适用于港澳台地区特殊情况。",
     "lasttime": "2025-07-22T09:15:48Z",
-    "subject": "政治理论",
-    "knowledge": "国家主权",
+    "subject": "法律法规",
+    "knowledge": "",
     "error_number": 1
 },
 {
@@ -7258,17 +7258,38 @@ const questions = [
     "option_C": "从群众中来，到群众中去",
     "option_D": "一切从实际出发",
     "answer": "D",
-    "explanation": "<b style='color:red'>【选项解析】</b><br  />"
-    + "<b style='color:blue'>A.理论联系实际</b>：是实事求是的重要内容，但不是首要要求<br  />"
-    + "<b style='color:blue'>B.在实践中检验和发展真理</b>：是认识论的基本原理<br  />"
-    + "<b style='color:blue'>C.从群众中来，到群众中去</b>：是群众路线的核心<br  />"
-    + "<b style='color:green'>D.一切从实际出发</b>：是实事求是的<b>首要前提和基础</b>，体现唯物主义根本要求<br  />"
-    + "<b style='color:red'>【知识点关联】</b><br  />"
-    + "1. 实事求是：毛泽东在《改造我们的学习》中系统阐述<br  />"
-    + "2. 党的思想路线：一切从实际出发→理论联系实际→实事求是→在实践中检验真理和发展真理",
+    "explanation": "<span style='color:red'>D正确（首要要求）</span>：<br  />• 毛泽东在《改造我们的学习》中明确'实事'就是客观存在，'求是'就是探求规律<br  />• 邓小平强调'<span style='color:red'>首要前提</span>是承认客观实际'<br  /><br  />其他选项知识点：<br  /><span style='color:blue'>A（根本途径）</span>：<br  />• 马克思主义认识论基本方法<br  />• 反对教条主义和经验主义<br  /><br  /><span style='color:green'>B（根本目的）</span>：<br  />• 实践是检验真理的唯一标准<br  />• 认识过程的第二次飞跃<br  /><br  /><span style='color:purple'>C（工作方法）</span>：<br  />• 群众路线的具体体现<br  />• 属于实践层面的要求",
     "lasttime": "2025-07-22T09:15:48Z",
-    "subject": "政治理论",
-    "knowledge": "党的思想路线",
+    "subject": "毛概和中特",
+    "knowledge": "",
+    "error_number": 1
+},
+{
+    "question_id": 555,
+    "content": "宇航服充入气体可以使血压改变，用于宇航员在太空中保持正常压力，这个功能模仿的生物最可能来源于：",
+    "option_A": "骆驼",
+    "option_B": "鸵鸟",
+    "option_C": "大象",
+    "option_D": "长颈鹿",
+    "answer": "D",
+    "explanation": "<span style='color:red'>D正确（长颈鹿）</span>：<br  />• 长颈鹿具有特殊的<span style='color:blue'>血压调节系统</span>，能适应从低头饮水到抬头时2米的高度差<br  />• 其颈静脉有<span style='color:blue'>瓣膜结构</span>，腿部皮肤紧绷形成压力袜效应<br  />• 这些特征与宇航服<span style='color:blue'>充气加压原理</span>高度相似<br  /><br  />其他选项分析：<br  />A（骆驼）：适应干旱环境，与压力调节无关<br  />B（鸵鸟）：以奔跑能力著称，无特殊血压适应机制<br  />C（大象）：虽有体型优势，但无应对重力变化的特殊结构",
+    "lasttime": "2025-07-22T09:15:48Z",
+    "subject": "科技地理",
+    "knowledge": "",
+    "error_number": 1
+},
+{
+    "question_id": 556,
+    "content": "运送人造地球卫星的火箭开始工作后，火箭做加速运动的原因是：",
+    "option_A": "火箭发动机用力将燃料燃烧产生的气体向后推出，气体的反作用力推动火箭",
+    "option_B": "燃料推动空气，空气的反作用力推动火箭",
+    "option_C": "火箭燃料燃烧发热，加热周围空气，空气膨胀推动火箭",
+    "option_D": "火箭吸入空气，然后向后排出，空气对火箭的反作用力推动火箭",
+    "answer": "A",
+    "explanation": "<span style='color:red'>A正确</span>：<br  />• 根据<span style='color:blue'>牛顿第三定律</span>（作用力与反作用力）<br  />• 火箭通过<span style='color:blue'>向下喷射高温高压气体</span>获得向上的反作用力<br  />• 太空中仍可工作（不依赖空气）<br  /><br  />错误选项分析：<br  />B：太空无空气，原理错误<br  />C：火箭推进不依赖空气加热<br  />D：火箭自带氧化剂，不依赖吸入空气",
+    "lasttime": "2025-07-22T09:15:48Z",
+    "subject": "科技地理",
+    "knowledge": "",
     "error_number": 1
 },
 
