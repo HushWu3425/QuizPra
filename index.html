@@ -288,9 +288,25 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="main-content flex-1 pb-12 px-4 w-full mx-auto lg:ml-80"> <!-- Modified: Removed max-w-4xl, added w-full -->
+    <main class="main-content flex-1 pb-12 px-4 w-full mx-auto lg:ml-80 mt-10"> 
+      <!-- 新增顶部筛选栏 -->
+      <div class="flex justify-between items-center mb-6 mt-4 ml-4 mr-3"> 
+        <div class="flex-1 mr-4">
+          <label for="top-subject-filter" class="block text-gray-700 text-sm font-bold mb-2">科目</label>
+          <select id="top-subject-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+            <option value="all">所有科目</option>
+          </select>
+        </div>
+        <div class="flex-1">
+          <label for="top-error-filter" class="block text-gray-700 text-sm font-bold mb-2">错误次数</label>
+          <select id="top-error-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+            <option value="0">所有</option>
+          </select>
+        </div>
+      </div>
+
       <div id="question-container"></div>
-    </main>
+    </main><!-- Modified: Removed max-w-4xl, added w-full -->
   </div>
 
   <!-- Random Quiz Button -->
@@ -302,6 +318,31 @@
   <div id="scroll-to-bottom" class="scroll-button material-icons">keyboard_arrow_down</div>
 
   <script>
+
+    // 在原有代码基础上添加以下内容
+
+    // 获取顶部筛选控件
+    const topSubjectFilter = document.getElementById('top-subject-filter');
+    const topErrorFilter = document.getElementById('top-error-filter');
+
+    // 初始化顶部筛选控件
+    function initTopFilters() {
+      // 复制现有筛选选项
+      const subjectOptions = document.getElementById('subject-filter').innerHTML;
+      const errorOptions = document.getElementById('min-error-filter').innerHTML;
+      
+      topSubjectFilter.innerHTML = subjectOptions;
+      topErrorFilter.innerHTML = errorOptions;
+    }
+
+    // 添加事件监听
+    topSubjectFilter.addEventListener('change', filterAndRenderQuestions);
+    topErrorFilter.addEventListener('change', filterAndRenderQuestions);
+
+    // 在数据加载完成后初始化
+    window.addEventListener('DOMContentLoaded', () => {
+      initTopFilters();
+    });
     // Apple官网风格滚动动效
     window.addEventListener('scroll', function() {
       const header = document.getElementById('header');
@@ -404,35 +445,44 @@
     }
 
     function filterAndRenderQuestions() {
-      const selectedSubject = document.getElementById('subject-filter').value;
-      const selectedKnowledge = document.getElementById('knowledge-filter').value; // 获取选中的知识点
-      // 移除 maxDifficulty 相关代码
-      const minErrorNumber = parseInt(document.getElementById('min-error-filter').value);
+      // 获取顶部筛选控件值
+      const topSubject = document.getElementById('top-subject-filter').value;
+      const topMinError = parseInt(document.getElementById('top-error-filter').value);
+      
+      // 获取侧边栏筛选控件值
+      const sidebarSubject = document.getElementById('subject-filter').value;
+      const selectedKnowledge = document.getElementById('knowledge-filter').value;
+      const sidebarMinError = parseInt(document.getElementById('min-error-filter').value);
       const lastErrorDate = document.getElementById('last-error-date-filter').value;
-      const earliestErrorDate = document.getElementById('earliest-error-date-filter').value; // 获取最早错误时间筛选值
+      const earliestErrorDate = document.getElementById('earliest-error-date-filter').value;
+
+      // 合并筛选条件：顶部筛选优先
+      const finalSubject = topSubject !== 'all' ? topSubject : sidebarSubject;
+      const finalMinError = topMinError !== 0 ? topMinError : sidebarMinError;
 
       filteredQuestions = allQuestions.filter(q => {
-        const subjectMatch = selectedSubject === 'all' || q.subject === selectedSubject;
-        const knowledgeMatch = selectedKnowledge === 'all' || q.knowledge === selectedKnowledge; // 知识点匹配逻辑
-        // 移除 difficultyMatch 相关代码
-        const errorMatch = q.error_number >= minErrorNumber;
+        const subjectMatch = finalSubject === 'all' || q.subject === finalSubject;
+        const knowledgeMatch = selectedKnowledge === 'all' || q.knowledge === selectedKnowledge;
+        const errorMatch = q.error_number >= finalMinError;
+        
         let dateMatch = true;
         if (lastErrorDate) {
           const questionDate = new Date(q.lasttime).setHours(0,0,0,0);
           const filterDate = new Date(lastErrorDate).setHours(0,0,0,0);
           dateMatch = questionDate >= filterDate;
         }
-        // 添加最早错误时间筛选逻辑
         if (earliestErrorDate) {
           const questionDate = new Date(q.lasttime).setHours(0,0,0,0);
           const filterDate = new Date(earliestErrorDate).setHours(0,0,0,0);
           dateMatch = dateMatch && (questionDate <= filterDate);
         }
-        return subjectMatch && knowledgeMatch && errorMatch && dateMatch; // 组合所有筛选条件
+        
+        return subjectMatch && knowledgeMatch && errorMatch && dateMatch;
       });
+      
       renderQuestions(filteredQuestions);
     }
-
+    
     function renderQuestions(questionsToRender) {
       const questionContainer = document.getElementById('question-container');
       let allQuestionsHtml = '';
@@ -520,6 +570,9 @@
       // 重新筛选并渲染题目
       filterAndRenderQuestions();
     });
+
+    
+    
 
     // Initial sidebar state for desktop
     if (window.innerWidth >= 1024) {
