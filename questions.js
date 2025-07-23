@@ -7236,5 +7236,44 @@ const questions = [
     "knowledge": "方程问题",
     "error_number": 1
 },
+{
+    "question_id": 553,
+    "content": "中国的主权和领土完整不容侵犯和分割，维护国家主权、统一和领土完整是包括港澳同胞和台湾同胞在内的（ ）的共同义务。",
+    "option_A": "全中国人民",
+    "option_B": "全中国公民",
+    "option_C": "全体居民",
+    "option_D": "全体国民",
+    "answer": "A",
+    "explanation": "根据《反分裂国家法》第2条规定，维护国家主权和领土完整是<b style='color:red'>全中国人民</b>的共同义务。'人民'概念包含港澳台同胞，比'公民'（法律概念）更符合政治表述。",
+    "lasttime": "2025-07-22T09:15:48Z",
+    "subject": "政治理论",
+    "knowledge": "国家主权",
+    "error_number": 1
+},
+{
+    "question_id": 554,
+    "content": "实事求是的首要要求是：",
+    "option_A": "理论联系实际",
+    "option_B": "在实践中检验和发展真理",
+    "option_C": "从群众中来，到群众中去",
+    "option_D": "一切从实际出发",
+    "answer": "D",
+    "explanation": "<b style='color:red'>【选项解析】</b><br  />"
+    + "<b style='color:blue'>A.理论联系实际</b>：是实事求是的重要内容，但不是首要要求<br  />"
+    + "<b style='color:blue'>B.在实践中检验和发展真理</b>：是认识论的基本原理<br  />"
+    + "<b style='color:blue'>C.从群众中来，到群众中去</b>：是群众路线的核心<br  />"
+    + "<b style='color:green'>D.一切从实际出发</b>：是实事求是的<b>首要前提和基础</b>，体现唯物主义根本要求<br  />"
+    + "<b style='color:red'>【知识点关联】</b><br  />"
+    + "1. 实事求是：毛泽东在《改造我们的学习》中系统阐述<br  />"
+    + "2. 党的思想路线：一切从实际出发→理论联系实际→实事求是→在实践中检验真理和发展真理",
+    "lasttime": "2025-07-22T09:15:48Z",
+    "subject": "政治理论",
+    "knowledge": "党的思想路线",
+    "error_number": 1
+},
 
 ];
+
+/**
+ * 获取题库 https://www.fenbi.com/spa/tiku/report/profile/xingce/xingce/tree/2
+ */

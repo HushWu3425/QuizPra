@@ -750,16 +750,3 @@
   </script>
 </body>
 </html>
-
-// 添加随机抽题函数
-function getRandomExercises(count) {
-    const shuffled = [...filteredExercises].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
-}
-
-// 绑定骰子按钮点击事件
-document.getElementById('random-exercise').addEventListener('click', () => {
-    const randomExercises = getRandomExercises(5);
-    filteredExercises = randomExercises;
-    renderCurrentExercise();
-});
