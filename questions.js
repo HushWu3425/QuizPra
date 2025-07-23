@@ -7292,6 +7292,20 @@ const questions = [
     "knowledge": "",
     "error_number": 1
 },
+{
+    "question_id": 557,
+    "content": "在新时期，我们党召开的三中全会对社会主义改革进行了总体部署，关于这些总体部署的表述不正确的是：",
+    "option_A": "党的十二届三中全会通过了《中共中央关于经济体制改革的决定》",
+    "option_B": "党的十四届三中全会通过了《中共中央关于建立社会主义市场经济体制若干问题的决定》",
+    "option_C": "党的十六届三中全会通过了《中共中央关于完善社会主义市场经济体制若干问题的决定》",
+    "option_D": "党的十八届三中全会通过了《中共中央关于全面深化党和国家机制改革的决定》",
+    "answer": "D",
+    "explanation": "<span style='color:red'>D项错误</span>：<br  />• 十八届三中全会通过的实为《中共中央关于<span style='color:blue'>全面深化改革</span>若干重大问题的决定》<br  />• 原表述中\"党和国家机制改革\"为错误表述<br  /><br  />正确选项知识点：<br  />A（1984年）：<br  />• 首次明确社会主义经济是<span style='color:blue'>公有制基础上有计划的商品经济</span><br  />B（1993年）：<br  />• 确立社会主义市场经济体制<span style='color:blue'>基本框架</span><br  />C（2003年）：<br  />• 提出<span style='color:blue'>五个统筹</span>的科学发展观要求",
+    "lasttime": "2025-07-22T09:15:48Z",
+    "subject": "政治理论",
+    "knowledge": "改革开放史",
+    "error_number": 1
+}
 
 ];
 
