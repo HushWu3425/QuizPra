@@ -7258,7 +7258,7 @@ const questions = [
     "option_C": "从群众中来，到群众中去",
     "option_D": "一切从实际出发",
     "answer": "D",
-    "explanation": "<span style='color:red'>D正确（首要要求）</span>：<br  />• 毛泽东在《改造我们的学习》中明确'实事'就是客观存在，'求是'就是探求规律<br  />• 邓小平强调'<span style='color:red'>首要前提</span>是承认客观实际'<br  /><br  />其他选项知识点：<br  /><span style='color:gray'>A（根本途径）</span>：<br  />• 马克思主义认识论基本方法<br  />• 反对教条主义和经验主义<br  /><br  /><span style='color:green'>B（根本目的）</span>：<br  />• 实践是检验真理的唯一标准<br  />• 认识过程的第二次飞跃<br  /><br  /><span style='color:purple'>C（工作方法）</span>：<br  />• 群众路线的具体体现<br  />• 属于实践层面的要求",
+    "explanation": "<span style='color:red'>D正确（首要要求）</span>：<br  />• 毛泽东在《改造我们的学习》中明确'实事'就是客观存在，'求是'就是探求规律<br  />• 邓小平强调'<span style='color:red'>首要前提</span>是承认客观实际'<br  /><br  />其他选项知识点：<br  /><span style='color:gray'>A（根本途径）</span>：<br  />• 马克思主义认识论基本方法<br  />• 反对教条主义和经验主义<br  /><br  /><span style='color:gray'>B（根本目的）</span>：<br  />• 实践是检验真理的唯一标准<br  />• 认识过程的第二次飞跃<br  /><br  /><span style='color:gray'>C（工作方法）</span>：<br  />• 群众路线的具体体现<br  />• 属于实践层面的要求",
     "lasttime": "2025-07-22T09:15:48Z",
     "subject": "毛概和中特",
     "knowledge": "",
