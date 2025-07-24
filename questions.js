@@ -7563,6 +7563,6 @@ const questions = [
 ];
 
 /**
- * 获取题库 https://www.fenbi.com/spa/tiku/report/profile/xingce/xingce/tree/2
- * <img src='示例.jpg' width='450'>
+ * 错题来源：https://www.fenbi.com/spa/tiku/report/profile/xingce/xingce/tree/2
+ * 添加图片示例：<img src='示例.jpg' width='450'>
  */
