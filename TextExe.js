@@ -219,7 +219,7 @@ const Texts = [
 "subject": "概括综合",
 "error_number": 0
 },
-// 第一题
+
 
 ];
 
