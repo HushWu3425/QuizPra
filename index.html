@@ -236,54 +236,50 @@
   <div class="flex">
     <!-- Sidebar -->
     <aside id="sidebar" class="sidebar fixed top-0 left-0 h-full bg-white shadow-lg z-40 p-6 pt-4 lg:pt-4 overflow-y-auto">
-      <div class="flex items-center mb-6">
+      <div class="flex items-center mb-4">
         <span class="material-icons highlight mr-2">quiz</span>
         <span class="zh">刷题练习</span>
         <span class="en ml-3">Practice Quiz</span>
       </div>
+      
       <h3 class="zh mb-4 highlight">筛选条件 <span class="en">Filters</span></h3>
-      <div class="mb-6">
+      <div class="mb-5">
         <label for="subject-filter" class="block text-gray-700 text-sm font-bold mb-2">科目 <span class="en">Subject</span></label>
-        <select id="subject-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+        <select id="subject-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
           <option value="all">所有科目 <span class="en">All Subjects</span></option>
         </select>
       </div>
             <!-- 新增知识点筛选器 -->
-      <div class="mb-6">
+      <div class="mb-5">
         <label for="knowledge-filter" class="block text-gray-700 text-sm font-bold mb-2">知识点 <span class="en">Knowledge</span></label>
-        <select id="knowledge-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+        <select id="knowledge-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
           <option value="all">所有知识点 <span class="en">All Knowledge</span></option>
         </select>
       </div>
       <!-- 删除最大难度筛选相关代码块 -->
-      <div class="mb-6">
+      <div class="mb-5">
         <label for="min-error-filter" class="block text-gray-700 text-sm font-bold mb-2">最小错误次数 <span class="en">Min Errors</span></label>
-        <select id="min-error-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+        <select id="min-error-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
           <option value="0">所有 <span class="en">All</span></option>
         </select>
       </div>
-
-      <div class="mb-6">
-        <label for="last-error-date-filter" class="block text-gray-700 text-sm font-bold mb-2">最近错误时间 <span class="en">Last Error Date</span></label>
-        <input type="date" id="last-error-date-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-      </div>
-      <div class="mb-6">
-        <label for="earliest-error-date-filter" class="block text-gray-700 text-sm font-bold mb-2">最早错误时间 <span class="en">Earliest Error Date</span></label>
-        <input type="date" id="earliest-error-date-filter" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-      </div>
       
-      <!-- 修改后的重置按钮 -->
-      <div class="mb-6 flex gap-4">
-        </button>
-      </div>
       <!-- 添加随机抽题按钮 -->
       <div class="mb-6 flex gap-4">
-        <button id="random-questions" class="flex-1 bg-orange-500 hover:bg-yellow-600 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline transition-colors duration-200">
+        <button id="random-questions" class="flex-1 bg-orange-500 hover:bg-yellow-600 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline transition-colors duration-200">
           🎲随机抽题
         </button>
-        <button id="reset-filters" class="flex-1 bg-yellow-600 hover:bg-orange-600 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline transition-colors duration-200">
+        <button id="reset-filters" class="flex-1 bg-yellow-600 hover:bg-orange-600 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline transition-colors duration-200">
           🪃重置筛选
         </button>
+      </div>
+      
+      <!-- 添加日历热力图 -->
+      <div class="mt-auto">
+        <h3 class="zh mb-4 highlight">日历热力图 <span class="en">Calendar Heatmap</span></h3>
+        <div id="calendar-heatmap" class="p-2 bg-gray-50 rounded-lg ">
+          <!-- 日历热力图将通过JavaScript动态生成 -->
+        </div>
       </div>
     </aside>
 
@@ -323,31 +319,6 @@
   <div id="scroll-to-bottom" class="scroll-button material-icons">keyboard_arrow_down</div>
 
   <script>
-
-    // 在原有代码基础上添加以下内容
-
-    // 获取顶部筛选控件
-    const topSubjectFilter = document.getElementById('top-subject-filter');
-    const topErrorFilter = document.getElementById('top-error-filter');
-
-    // 初始化顶部筛选控件
-    function initTopFilters() {
-      // 复制现有筛选选项
-      const subjectOptions = document.getElementById('subject-filter').innerHTML;
-      const errorOptions = document.getElementById('min-error-filter').innerHTML;
-      
-      topSubjectFilter.innerHTML = subjectOptions;
-      topErrorFilter.innerHTML = errorOptions;
-    }
-
-    // 添加事件监听
-    topSubjectFilter.addEventListener('change', filterAndRenderQuestions);
-    topErrorFilter.addEventListener('change', filterAndRenderQuestions);
-
-    // 在数据加载完成后初始化
-    window.addEventListener('DOMContentLoaded', () => {
-      initTopFilters();
-    });
     // Apple官网风格滚动动效
     window.addEventListener('scroll', function() {
       const header = document.getElementById('header');
@@ -413,12 +384,162 @@
 
     let allQuestions = [];
     let filteredQuestions = [];
+    // 添加日历热力图相关变量
+    let currentMonthOffset = 0; // 当前月份偏移量（0为当前月，-1为上月，1为下月）
 
     // 直接使用 questions.js 中的变量
     allQuestions = questions;
     populateFilters();
     filterAndRenderQuestions();
-
+    
+    // 添加日历热力图相关函数
+    function generateCalendarHeatmap() {
+      // 统计每天的错题数量
+      const dateCountMap = {};
+      
+      allQuestions.forEach(q => {
+        if (q.lasttime) {
+          // 提取日期部分（YYYY-MM-DD）
+          const date = q.lasttime.split('T')[0];
+          dateCountMap[date] = (dateCountMap[date] || 0) + 1;
+        }
+      });
+      
+      // 生成日历热力图
+      const heatmapContainer = document.getElementById('calendar-heatmap');
+      heatmapContainer.innerHTML = '';
+      
+      // 创建标题和导航按钮
+      const titleContainer = document.createElement('div');
+      titleContainer.className = 'flex justify-between items-center mb-2';
+      
+      const prevButton = document.createElement('button');
+      prevButton.className = 'material-icons text-sm p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-600';
+      prevButton.textContent = 'arrow_back_ios';
+      prevButton.onclick = () => {
+        currentMonthOffset--;
+        generateCalendarHeatmap();
+      };
+      
+      const title = document.createElement('div');
+      title.className = 'text-center font-bold';
+      const now = new Date();
+      const targetMonth = new Date(now.getFullYear(), now.getMonth() + currentMonthOffset, 1);
+      title.textContent = `${targetMonth.getFullYear()}年${targetMonth.getMonth() + 1}月`;
+      
+      const nextButton = document.createElement('button');
+      nextButton.className = 'material-icons text-sm p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-600';
+      nextButton.textContent = 'arrow_forward_ios';
+      nextButton.onclick = () => {
+        currentMonthOffset++;
+        generateCalendarHeatmap();
+      };
+      
+      titleContainer.appendChild(prevButton);
+      titleContainer.appendChild(title);
+      titleContainer.appendChild(nextButton);
+      heatmapContainer.appendChild(titleContainer);
+      
+      // 创建日历网格
+      const calendarGrid = document.createElement('div');
+      calendarGrid.className = 'grid grid-cols-7 gap-1';
+      
+      // 添加星期标题
+      const weekdays = ['日', '一', '二', '三', '四', '五', '六'];
+      weekdays.forEach(day => {
+        const dayElement = document.createElement('div');
+        dayElement.className = 'text-center text-xs p-1';
+        dayElement.textContent = day;
+        calendarGrid.appendChild(dayElement);
+      });
+      
+      // 获取目标月份的日期范围
+      const year = targetMonth.getFullYear();
+      const month = targetMonth.getMonth();
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+      
+      // 填充日期网格
+      // 先填充月初的空位
+      for (let i = 0; i < firstDay.getDay(); i++) {
+        const emptyElement = document.createElement('div');
+        emptyElement.className = 'text-center text-xs p-1 rounded';
+        calendarGrid.appendChild(emptyElement);
+      }
+      
+      // 填充当月日期
+      for (let day = 1; day <= lastDay.getDate(); day++) {
+        const currentDate = new Date(year, month, day);
+        const dateString = currentDate.toISOString().split('T')[0];
+        const count = dateCountMap[dateString] || 0;
+        
+        const dateElement = document.createElement('div');
+        dateElement.className = 'text-center text-xs p-1 rounded cursor-pointer hover:opacity-75 transition-opacity';
+        dateElement.textContent = day;
+        dateElement.dataset.date = dateString;
+        
+        // 根据错题数量设置不同的颜色深度
+        if (count === 0) {
+          dateElement.style.backgroundColor = '#e5e7eb';
+          dateElement.classList.add('dark:bg-gray-600', 'dark:text-gray-400');
+        } else if (count < 2) {
+          dateElement.style.backgroundColor = '#fef3c7';
+          dateElement.style.color = '#92400e';
+          dateElement.classList.add('dark:bg-yellow-700', 'dark:text-yellow-100');
+        } else if (count < 4) {
+          dateElement.style.backgroundColor = '#fcd34d';
+          dateElement.style.color = '#92400e';
+          dateElement.classList.add('dark:bg-yellow-600', 'dark:text-yellow-100');
+        } else {
+          dateElement.style.backgroundColor = '#f59e0b';
+          dateElement.style.color = '#ffffff';
+          dateElement.classList.add('dark:bg-yellow-500');
+        }
+        
+        // 添加点击事件
+        dateElement.addEventListener('click', () => {
+          // 高亮选中的日期
+          document.querySelectorAll('#calendar-heatmap .grid > div').forEach(el => {
+            el.classList.remove('ring-2', 'ring-red-500');
+          });
+          dateElement.classList.add('ring-2', 'ring-red-500');
+          
+          // 筛选并显示该日期的题目
+          filterQuestionsByDate(dateString);
+        });
+        
+        calendarGrid.appendChild(dateElement);
+      }
+      
+      heatmapContainer.appendChild(calendarGrid);
+      
+      // 添加图例
+      const legend = document.createElement('div');
+      legend.className = 'flex justify-between text-xs mt-2 dark:text-gray-300';
+      legend.innerHTML = `
+        <span>少</span>
+        <div class="flex">
+          <div class="w-3 h-3 bg-gray-200 mx-1 dark:bg-gray-600"></div>
+          <div class="w-3 h-3 bg-yellow-100 mx-1 dark:bg-yellow-700"></div>
+          <div class="w-3 h-3 bg-yellow-300 mx-1 dark:bg-yellow-600"></div>
+          <div class="w-3 h-3 bg-yellow-500 mx-1 dark:bg-yellow-500"></div>
+        </div>
+        <span>多</span>
+      `;
+      heatmapContainer.appendChild(legend);
+    }
+    
+    // 根据日期筛选题目
+    function filterQuestionsByDate(date) {
+      filteredQuestions = allQuestions.filter(q => {
+        if (!q.lasttime) return false;
+        return q.lasttime.split('T')[0] === date;
+      });
+      
+      renderQuestions(filteredQuestions);
+    }
+    
+    // 修改 populateFilters 函数，在末尾添加生成日历热力图的调用
     function populateFilters() {
       const subjectFilter = document.getElementById('subject-filter');
       const minErrorFilter = document.getElementById('min-error-filter');
@@ -459,6 +580,9 @@
         option.textContent = i;
         minErrorFilter.appendChild(option);
       }
+      
+      // 生成日历热力图
+      generateCalendarHeatmap();
     }
 
     function filterAndRenderQuestions() {
@@ -470,8 +594,6 @@
       const sidebarSubject = document.getElementById('subject-filter').value;
       const selectedKnowledge = document.getElementById('knowledge-filter').value;
       const sidebarMinError = parseInt(document.getElementById('min-error-filter').value);
-      const lastErrorDate = document.getElementById('last-error-date-filter').value;
-      const earliestErrorDate = document.getElementById('earliest-error-date-filter').value;
 
       // 合并筛选条件：顶部筛选优先
       const finalSubject = topSubject !== 'all' ? topSubject : sidebarSubject;
@@ -482,19 +604,7 @@
         const knowledgeMatch = selectedKnowledge === 'all' || q.knowledge === selectedKnowledge;
         const errorMatch = q.error_number >= finalMinError;
         
-        let dateMatch = true;
-        if (lastErrorDate) {
-          const questionDate = new Date(q.lasttime).setHours(0,0,0,0);
-          const filterDate = new Date(lastErrorDate).setHours(0,0,0,0);
-          dateMatch = questionDate >= filterDate;
-        }
-        if (earliestErrorDate) {
-          const questionDate = new Date(q.lasttime).setHours(0,0,0,0);
-          const filterDate = new Date(earliestErrorDate).setHours(0,0,0,0);
-          dateMatch = dateMatch && (questionDate <= filterDate);
-        }
-        
-        return subjectMatch && knowledgeMatch && errorMatch && dateMatch;
+        return subjectMatch && knowledgeMatch && errorMatch;
       });
       
       renderQuestions(filteredQuestions);
@@ -551,7 +661,6 @@
     document.getElementById('knowledge-filter').addEventListener('change', filterAndRenderQuestions); // 添加知识点筛选器的事件监听
     // 删除 difficulty-filter 相关事件监听
     document.getElementById('min-error-filter').addEventListener('change', filterAndRenderQuestions);
-    document.getElementById('last-error-date-filter').addEventListener('change', filterAndRenderQuestions);
     
     // 添加随机抽题功能
     document.getElementById('random-questions').addEventListener('click', function() {
@@ -580,12 +689,16 @@
       // 重置所有筛选控件
       document.getElementById('subject-filter').value = 'all';
       document.getElementById('min-error-filter').value = '0';
-      document.getElementById('last-error-date-filter').value = '';
-      document.getElementById('earliest-error-date-filter').value = '';
       document.getElementById('knowledge-filter').value = 'all'; // 重置知识点筛选器
+      
+      // 重置月份偏移
+      currentMonthOffset = 0;
       
       // 重新筛选并渲染题目
       filterAndRenderQuestions();
+      
+      // 重新生成日历热力图
+      generateCalendarHeatmap();
     });
 
     
@@ -629,3 +742,6 @@
   </script>
 </body>
 </html>
+
+
+
