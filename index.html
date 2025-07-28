@@ -543,14 +543,19 @@
     function populateFilters() {
       const subjectFilter = document.getElementById('subject-filter');
       const minErrorFilter = document.getElementById('min-error-filter');
-      const knowledgeFilter = document.getElementById('knowledge-filter'); // 获取知识点筛选器
+      const knowledgeFilter = document.getElementById('knowledge-filter');
+      
+      // 添加顶部筛选器元素
+      const topSubjectFilter = document.getElementById('top-subject-filter');
+      const topErrorFilter = document.getElementById('top-error-filter');
+      
       const subjects = new Set();
-      const knowledges = new Set(); // 用于存储所有唯一的知识点
+      const knowledges = new Set();
       let maxErrorNumber = 0;
 
       allQuestions.forEach(q => {
         subjects.add(q.subject);
-        if (q.knowledge) { // 确保知识点存在
+        if (q.knowledge) {
           knowledges.add(q.knowledge);
         }
         if (q.error_number > maxErrorNumber) {
@@ -558,14 +563,21 @@
         }
       });
 
+      // 为所有科目筛选器填充选项（包括顶部和侧边栏）
       subjects.forEach(subject => {
         const option = document.createElement('option');
         option.value = subject;
         option.textContent = subject;
-        subjectFilter.appendChild(option);
+        
+        // 同时添加到顶部和侧边栏的科目筛选器
+        const topOption = option.cloneNode(true);
+        const sidebarOption = option.cloneNode(true);
+        
+        topSubjectFilter.appendChild(topOption);
+        subjectFilter.appendChild(sidebarOption);
       });
 
-      // Populate knowledge filter
+      // 填充知识点筛选器
       knowledges.forEach(knowledge => {
         const option = document.createElement('option');
         option.value = knowledge;
@@ -573,12 +585,18 @@
         knowledgeFilter.appendChild(option);
       });
 
-      // Populate min error filter
+      // 填充所有错误次数筛选器
       for (let i = 0; i <= maxErrorNumber; i++) {
         const option = document.createElement('option');
         option.value = i;
         option.textContent = i;
-        minErrorFilter.appendChild(option);
+        
+        // 同时添加到顶部和侧边栏的错误次数筛选器
+        const topErrorOption = option.cloneNode(true);
+        const sidebarErrorOption = option.cloneNode(true);
+        
+        topErrorFilter.appendChild(topErrorOption);
+        minErrorFilter.appendChild(sidebarErrorOption);
       }
       
       // 生成日历热力图
@@ -661,12 +679,17 @@
     document.getElementById('knowledge-filter').addEventListener('change', filterAndRenderQuestions); // 添加知识点筛选器的事件监听
     // 删除 difficulty-filter 相关事件监听
     document.getElementById('min-error-filter').addEventListener('change', filterAndRenderQuestions);
+    // 添加顶部筛选控件的事件监听器
+    document.getElementById('top-subject-filter').addEventListener('change', filterAndRenderQuestions);
+    document.getElementById('top-error-filter').addEventListener('change', filterAndRenderQuestions);
     
     // 添加随机抽题功能
     document.getElementById('random-questions').addEventListener('click', function() {
     // 从所有题目中随机抽取10道
     const shuffled = [...allQuestions].sort(() => 0.5 - Math.random());
     const random10 = shuffled.slice(0, 10);
+
+
     
     // 渲染随机题目
     renderQuestions(random10);
