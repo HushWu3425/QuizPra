@@ -8255,7 +8255,7 @@ const questions = [
     "option_C": "130",
     "option_D": "140",
     "answer": "D",
-    "explanation": "设水果单价可以是小数，赋值蓝莓单价为0，设苹果和蓝莓单价分别为x、y，则x+3y=260，x+4y=320，则y=60，x=80",
+    "explanation": "水果单价可以是小数，求三者和，采用赋0️⃣法。<br/> 赋值蓝莓单价为0，设苹果和蓝莓单价分别为x、y，则x+3y=260，x+4y=320，则y=60，x=80",
     "lasttime": "2025-07-28T15:34:33Z",
     "subject": "数量关系",
     "knowledge": "方程问题",
