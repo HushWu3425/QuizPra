@@ -8218,13 +8218,49 @@ const questions = [
     "lasttime": "2025-07-28T09:43:34Z",
     "subject": "人文历史",
     "error_number": 1
-}
-
-
-
-
-
-
+},
+{
+    "question_id": 629,
+    "content": "某夫妇拟从2023年12月1日（星期五）起实施健身计划。妻子的计划是当天的日期为质数就游泳，丈夫的计划是每周一、三、五游泳。按该夫妇的计划，他们2023年12月同日游泳的天数是（ ）。",
+    "option_A": "5",
+    "option_B": "4",
+    "option_C": "3",
+    "option_D": "2",
+    "answer": "C",
+    "explanation": "**解析**：妻子计划非周期，采用枚举法，画月份图枚举，「找头找尾，加七结束」<br  /><img src='https://HushWu3425.github.io/picx-images-hosting/image.estdmr5aj.webp' width='450'>",
+    "lasttime": "2025-07-28T10:47:18Z",
+    "subject": "数量关系",
+    "knowledge": "周期问题",
+    "error_number": 1
+},
+{
+    "question_id": 630,
+    "content": "小张每周二、周五和周日固定参加骑行社团活动。某年9月和10月，小张分别参加了13次和14次活动。问当年他最后一次参加活动是在哪一天？",
+    "option_A": "12月31日",
+    "option_B": "12月30日",
+    "option_C": "12月29日",
+    "option_D": "12月28日",
+    "answer": "A",
+    "explanation": "**解析**：每周去3天，连续28天去了12次。<br  />9月30天，减去28天剩2天，多去1次，<br  />10月31天，减去28天剩3天，多去了2次。<br  />10月这三天有两种情况：①周5、6、7、②周7、1、2：<br  />10月周567，则9月是周34，不符合，10月只能是周712。<br  />10月31日是周二，则12月31日为周日，参加。<br  />示意图：<br  />①|-7-|-7-|-7-|-7-|三、四|五、六、七|-7-|-7-|-7-|-7-|<br  />②|-7-|-7-|-7-|-7-|五、六|七、一、二|-7-|-7-|-7-|-7-|",
+    "lasttime": "2025-07-28T15:34:33Z",
+    "subject": "数量关系",
+    "knowledge": "周期问题",
+    "error_number": 2
+},
+{
+    "question_id": 631,
+    "content": "顾客安女士在水果店购买了1箱苹果、3盒草莓和5盒蓝莓，共花费260元。顾客何先生在同一水果店以同样的单价购买了1箱苹果、4盒草莓和7盒蓝莓，共花费320元。那么购买1箱苹果、1盒草莓和1盒蓝莓需花费（）元。",
+    "option_A": "110",
+    "option_B": "120",
+    "option_C": "130",
+    "option_D": "140",
+    "answer": "D",
+    "explanation": "设水果单价可以是小数，赋值蓝莓单价为0，设苹果和蓝莓单价分别为x、y，则x+3y=260，x+4y=320，则y=60，x=80",
+    "lasttime": "2025-07-28T15:34:33Z",
+    "subject": "数量关系",
+    "knowledge": "方程问题",
+    "error_number": 1
+},
 
 
 ];
@@ -8232,4 +8268,5 @@ const questions = [
 /**
  * 错题来源：https://www.fenbi.com/spa/tiku/report/profile/xingce/xingce/tree/2
  * 添加图片示例：<img src='示例.jpg' width='450'>
+ * <br  />
  */
