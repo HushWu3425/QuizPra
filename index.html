@@ -415,6 +415,7 @@
       
       const prevButton = document.createElement('button');
       prevButton.className = 'material-icons text-sm p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-600';
+      prevButton.style.color = '#483d8b'; // 深蓝色
       prevButton.textContent = 'arrow_back_ios';
       prevButton.onclick = () => {
         currentMonthOffset--;
@@ -423,12 +424,14 @@
       
       const title = document.createElement('div');
       title.className = 'text-center font-bold';
+      title.style.color = '#483d8b'; // 深蓝色
       const now = new Date();
       const targetMonth = new Date(now.getFullYear(), now.getMonth() + currentMonthOffset, 1);
       title.textContent = `${targetMonth.getFullYear()}年${targetMonth.getMonth() + 1}月`;
       
       const nextButton = document.createElement('button');
       nextButton.className = 'material-icons text-sm p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-600';
+      nextButton.style.color = '#483d8b'; // 深蓝色
       nextButton.textContent = 'arrow_forward_ios';
       nextButton.onclick = () => {
         currentMonthOffset++;
@@ -449,6 +452,7 @@
       weekdays.forEach(day => {
         const dayElement = document.createElement('div');
         dayElement.className = 'text-center text-xs p-1';
+        dayElement.style.color = '#483d8b'; // 深蓝色
         dayElement.textContent = day;
         calendarGrid.appendChild(dayElement);
       });
@@ -516,6 +520,7 @@
       // 添加图例
       const legend = document.createElement('div');
       legend.className = 'flex justify-between text-xs mt-2 dark:text-gray-300';
+      legend.style.color = '#483d8b'; // 深蓝色
       legend.innerHTML = `
         <span>少</span>
         <div class="flex">
