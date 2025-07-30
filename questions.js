@@ -8713,7 +8713,7 @@ const questions = [
     "option_C": "黄道面是指月球绕地球运行的轨道面",
     "option_D": "星座是指在天球上投影位置相近的恒星群落",
     "answer": "C",
-    "explanation": "**解析**：<br  />C项错误，黄道面是地球绕太阳公转轨道面。<br  />**天文知识**：<br  />1. A项正确：天球是天文学定位工具；<br  />2. B项正确：小行星带位于火星木星之间；<br  />3. C项错误：黄道面属地球公转非月球轨道；<br  />4. D项正确：星座是恒星投影组成的图案。",
+    "explanation": "**解析**：<img src='https://HushWu3425.github.io/picx-images-hosting/image.175oy7oqiu.webp' width='800'><br  />C项错误，黄道面是地球绕太阳公转轨道面。<br  />**天文知识**：<br  />1. A项正确：天球是天文学定位工具；<br  />2. B项正确：小行星带位于火星木星之间；<br  />3. C项错误：黄道面属地球公转非月球轨道；<br  />4. D项正确：星座是恒星投影组成的图案。",
     "lasttime": "2025-07-30T15:05:03Z",
     "subject": "科技地理",
     "knowledge": "",
