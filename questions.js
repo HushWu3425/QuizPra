@@ -8569,6 +8569,62 @@ const questions = [
     "subject": "言语理解",
     "knowledge": "片段阅读",
     "error_number": 1
+},
+{
+    "question_id": 657,
+    "content": "有一批零件，甲车间单独完成需要50小时，乙车间单独完成需要30小时。甲车间先单独工作若干小时后，剩余任务由乙车间继续完成，总共用时42小时。问乙车间完成的零件量占总量的：",
+    "option_A": "3/4",
+    "option_B": "2/5",
+    "option_C": "3/5",
+    "option_D": "1/3",
+    "answer": "B",
+    "explanation": "**解析**：占比选项只和为1，线段法猜题<br  />1️⃣BC占比之和为1，答案比在其中。<br  />2️⃣甲乙各做一半要花40小时，现在花了42小时，时间变长，说明做的慢（甲) 的做的多，<br  />选B",
+    "lasttime": "2025-07-29T15:14:41Z",
+    "subject": "数量关系",
+    "knowledge": "工程问题",
+    "error_number": 1
+},
+{
+    "question_id": 658,
+    "content": "老大单独完成一项工作需要8天时间。老大和老二一起工作了4天，完成了工作的75%，剩余工作由老二单独完成，还需要多少天？",
+    "option_A": "4天",
+    "option_B": "8天",
+    "option_C": "12天",
+    "option_D": "16天",
+    "answer": "A",
+    "explanation": "**解析**：普通工程完工时间型，赋总量，求效率 <br  />1. 设工作总量为4*8=32，老大效率为4；<br  />2. 设老二效率为x，则4(4 + x) = 24 ；<br  /> 3. 解得x = 2；<br  />4. 剩余工作量：8 ；<br  />5. 老二单独完成时间：8 ÷ 2 = 4天。",
+    "lasttime": "2025-07-29T15:14:41Z",
+    "subject": "数量关系",
+    "knowledge": "工程问题",
+    "error_number": 1
+},
+{
+    "question_id": 660,
+    "content": "甲、乙、丙三个工程队接到A、B两个工程的施工任务。已知：甲单独完成B工程需要30天；甲乙合作完成A工程需要30天，完成B工程需要20天；乙丙合作完成A工程需要24天。现在三个工程队合作完成A、B两个工程，多少天可以完工？（不足1天按1天计算）",
+    "option_A": "25",
+    "option_B": "26",
+    "option_C": "27",
+    "option_D": "28",
+    "answer": "C",
+    "explanation": "**解析**：<br  />①最重要的思维：列表 <br  />②同人不同工程，效率相等<br  /><img src='https://HushWu3425.github.io/picx-images-hosting/image.2dp06hbi8p.webp' width='450'>",
+    "lasttime": "2025-07-29T15:14:41Z",
+    "subject": "数量关系",
+    "knowledge": "工程问题",
+    "error_number": 2
+},
+{
+    "question_id": 661,
+    "content": "加工一批零件，甲、乙合作20小时完成需支付1200元；甲、丙合作15小时完成需1350元；乙、丙合作12小时完成需1320元。现安排三人共同加工并要求13小时内完成，最少需要支付多少元？",
+    "option_A": "1270",
+    "option_B": "1280",
+    "option_C": "1290",
+    "option_D": "1300",
+    "answer": "A",
+    "explanation": "**解析**：<img src='https://HushWu3425.github.io/picx-images-hosting/image.6wr19h2j3x.webp' width='450'><br  />1️⃣赋总量60。求的丙效率3和单价70<br  />2️⃣甲乙最便宜，让他干满13h，干了39，花780元。<br  />3️⃣剩下21丙干，要干7h，花490元。共1270元。",
+    "lasttime": "2025-07-29T15:14:41Z",
+    "subject": "数量关系",
+    "knowledge": "工程问题",
+    "error_number": 2
 }
 
 
