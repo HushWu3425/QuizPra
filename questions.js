@@ -4064,7 +4064,7 @@ const questions = [
 "explanation": "根据民法典第1081条，军人配偶要求离婚须得军人同意，但军人有重大过错除外。本案无军人过错情形，刘某不同意离婚，法院不得判决离婚（最高人民法院关于适用婚姻家庭编的解释（一）第64条）。",
 "lasttime": "2025-07-03T21:14:50Z",
 "subject": "法律法规",
-"error_number": 1
+"error_number": 2
 },
 {
 "question_id": 305,
@@ -4441,7 +4441,7 @@ const questions = [
 "explanation": "根据刑法第69条第2款，数罪中有判处有期徒刑和拘役的，执行有期徒刑。这是刑法修正案（九）新增的吸收原则，不同刑种不实行并罚。",
 "lasttime": "2025-07-04T15:01:22Z",
 "subject": "法律法规",
-"error_number": 1
+"error_number": 2
 },
 {
 "question_id": 334,
@@ -4922,7 +4922,7 @@ const questions = [
 "explanation": "根据《税收征收管理法》第88条，税务机关无行政拘留权（该权力专属于公安机关，《治安管理处罚法》第10条），故B项正确。此行为属于越权行政而非合理性或诚信问题（《行政处罚法》第17条明确授权范围）。抗税行为的强制措施应申请法院执行（《行政强制法》第53条）。",
 "lasttime": "2025-07-05T15:32:46Z",
 "subject": "法律法规",
-"error_number": 1
+"error_number": 2
 },
 {
 "question_id": 374,
@@ -6255,7 +6255,7 @@ const questions = [
 "explanation": "根据《促进高质量充分就业》原文：<br>①②③为'三结合'就业方针（党的二十届三中全会重申）；<br>④属专项工作措施（非基本方针）。<br>正确答案为'自主+市场+政府'三位一体组合。",
 "lasttime": "2025-07-11T10:24:01Z",
 "subject": "时政热点",
-"error_number": 1
+"error_number": 2
 },
 {
 "question_id": 477,
@@ -6307,7 +6307,7 @@ const questions = [
 "explanation": "根据新华社2024年11月29日电：<br>习近平强调'守正创新'基本原则（指示第一部分）<br>要求增强'针对性、实效性'（指示第三部分）<br>'问题导向'属研究方法（非根本原则）<br>'全方位覆盖'属传播手段（非效果要求）。",
 "lasttime": "2025-07-11T10:24:01Z",
 "subject": "时政热点",
-"error_number": 1
+"error_number": 2
 },
 {
 "question_id": 481,
@@ -6629,7 +6629,7 @@ const questions = [
 "explanation": "根据《方案》第四章：<br>①②④属消费环境改善（优化消费体验）；<br>③错误（应为'县级配送中心+村级终端'，属物流基建行动）。<br>注意：弹性休假（①）与假期设置（④）分属不同条款。",
 "lasttime": "2025-07-19T12:17:53Z",
 "subject": "时政热点",
-"error_number": 1
+"error_number": 2
 },
 {
 "question_id": 510,
